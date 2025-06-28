@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home, Info, Wrench, Package, Image, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -19,53 +19,59 @@ const Header = () => {
     <header className="fixed top-0 right-0 left-0 z-50 bg-white/95 backdrop-blur-sm shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center space-x-2 space-x-reverse">
+          {/* Logo - Clickable */}
+          <Link to="/" className="flex items-center space-x-2 space-x-reverse hover:opacity-80 transition-opacity">
             <img 
               src="/lovable-uploads/8094d4f9-52f3-414c-a63b-974f3d69d914.png" 
               alt="فرست سن إنرجي" 
               className="h-10 w-auto"
             />
             <span className="text-xl font-bold text-solar-blue">فرست سن إنرجي</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 space-x-reverse">
             <button 
               onClick={() => scrollToSection('home')}
-              className="text-gray-700 hover:text-solar-blue transition-colors font-medium"
+              className="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-solar-blue transition-colors font-medium"
             >
-              الرئيسية
+              <Home size={18} />
+              <span>الرئيسية</span>
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-solar-blue transition-colors font-medium"
+              className="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-solar-blue transition-colors font-medium"
             >
-              عنا
+              <Info size={18} />
+              <span>عنا</span>
             </button>
             <button 
               onClick={() => scrollToSection('services')}
-              className="text-gray-700 hover:text-solar-blue transition-colors font-medium"
+              className="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-solar-blue transition-colors font-medium"
             >
-              خدماتنا
+              <Wrench size={18} />
+              <span>خدماتنا</span>
             </button>
             <button 
               onClick={() => scrollToSection('products')}
-              className="text-gray-700 hover:text-solar-blue transition-colors font-medium"
+              className="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-solar-blue transition-colors font-medium"
             >
-              منتجاتنا
+              <Package size={18} />
+              <span>منتجاتنا</span>
             </button>
             <Link 
               to="/gallery"
-              className="text-gray-700 hover:text-solar-blue transition-colors font-medium"
+              className="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-solar-blue transition-colors font-medium"
             >
-              المعرض
+              <Image size={18} />
+              <span>المعرض</span>
             </Link>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-gray-700 hover:text-solar-blue transition-colors font-medium"
+              className="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-solar-blue transition-colors font-medium"
             >
-              تواصل معنا
+              <Phone size={18} />
+              <span>تواصل معنا</span>
             </button>
           </nav>
 
@@ -86,40 +92,46 @@ const Header = () => {
             <nav className="flex flex-col p-4 space-y-4">
               <button 
                 onClick={() => scrollToSection('home')}
-                className="text-gray-700 hover:text-solar-blue transition-colors font-medium text-right py-2"
+                className="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-solar-blue transition-colors font-medium text-right py-2"
               >
-                الرئيسية
+                <Home size={18} />
+                <span>الرئيسية</span>
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="text-gray-700 hover:text-solar-blue transition-colors font-medium text-right py-2"
+                className="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-solar-blue transition-colors font-medium text-right py-2"
               >
-                عنا
+                <Info size={18} />
+                <span>عنا</span>
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
-                className="text-gray-700 hover:text-solar-blue transition-colors font-medium text-right py-2"
+                className="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-solar-blue transition-colors font-medium text-right py-2"
               >
-                خدماتنا
+                <Wrench size={18} />
+                <span>خدماتنا</span>
               </button>
               <button 
                 onClick={() => scrollToSection('products')}
-                className="text-gray-700 hover:text-solar-blue transition-colors font-medium text-right py-2"
+                className="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-solar-blue transition-colors font-medium text-right py-2"
               >
-                منتجاتنا
+                <Package size={18} />
+                <span>منتجاتنا</span>
               </button>
               <Link 
                 to="/gallery"
-                className="text-gray-700 hover:text-solar-blue transition-colors font-medium text-right py-2"
+                className="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-solar-blue transition-colors font-medium text-right py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                المعرض
+                <Image size={18} />
+                <span>المعرض</span>
               </Link>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="text-gray-700 hover:text-solar-blue transition-colors font-medium text-right py-2"
+                className="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-solar-blue transition-colors font-medium text-right py-2"
               >
-                تواصل معنا
+                <Phone size={18} />
+                <span>تواصل معنا</span>
               </button>
             </nav>
           </div>
