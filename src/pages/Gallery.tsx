@@ -235,22 +235,18 @@ const Gallery = () => {
             </TabsList>
 
             {/* Mobile/Tablet Tabs - Scrollable */}
-            <div className="lg:hidden mb-8">
-              <div className="bg-white shadow-lg rounded-xl p-1">
-                <div className="flex overflow-x-auto scrollbar-hide gap-1">
-                  {categories.map((category) => (
-                    <TabsTrigger
-                      key={category}
-                      value={category}
-                      className="flex-shrink-0 text-sm font-medium px-4 py-2 rounded-lg data-[state=active]:bg-blue-500 data-[state=active]:text-white transition-all duration-300 whitespace-nowrap"
-                      onClick={() => setActiveCategory(category)}
-                    >
-                      {category}
-                    </TabsTrigger>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <TabsList className="lg:hidden flex overflow-x-auto scrollbar-hide gap-1 mb-8 h-auto p-1 bg-white shadow-lg rounded-xl w-full justify-start">
+              {categories.map((category) => (
+                <TabsTrigger
+                  key={category}
+                  value={category}
+                  className="flex-shrink-0 text-sm font-medium px-4 py-2 rounded-lg data-[state=active]:bg-blue-500 data-[state=active]:text-white transition-all duration-300 whitespace-nowrap"
+                  onClick={() => setActiveCategory(category)}
+                >
+                  {category}
+                </TabsTrigger>
+              ))}
+            </TabsList>
 
             {categories.map((category) => (
               <TabsContent key={category} value={category} className="mt-8">
