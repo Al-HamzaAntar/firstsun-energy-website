@@ -221,7 +221,7 @@ const Gallery = () => {
         <div className="container mx-auto px-4">
           <Tabs defaultValue="جميع المنتجات" className="w-full">
             {/* Desktop Tabs */}
-            <TabsList className="hidden lg:grid w-full grid-cols-11 mb-8 h-auto p-1 bg-white shadow-lg rounded-xl">
+            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-11 mb-8 h-auto p-1 bg-white shadow-lg rounded-xl gap-1">
               {categories.map((category) => (
                 <TabsTrigger
                   key={category}
@@ -234,19 +234,6 @@ const Gallery = () => {
               ))}
             </TabsList>
 
-            {/* Mobile/Tablet Tabs - Scrollable */}
-            <TabsList className="lg:hidden flex overflow-x-auto scrollbar-hide gap-1 mb-8 h-auto p-1 bg-white shadow-lg rounded-xl w-full justify-start">
-              {categories.map((category) => (
-                <TabsTrigger
-                  key={category}
-                  value={category}
-                  className="flex-shrink-0 text-sm font-medium px-4 py-2 rounded-lg data-[state=active]:bg-blue-500 data-[state=active]:text-white transition-all duration-300 whitespace-nowrap"
-                  onClick={() => setActiveCategory(category)}
-                >
-                  {category}
-                </TabsTrigger>
-              ))}
-            </TabsList>
 
             {categories.map((category) => (
               <TabsContent key={category} value={category} className="mt-8">
