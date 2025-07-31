@@ -99,6 +99,16 @@ All colors MUST be HSL.
   }
 }
 
+/* Scrollbar utilities */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
 .solar-gradient {
   background: linear-gradient(135deg, #2563eb 0%, #3b82f6 25%, #60a5fa 50%, #f97316 75%, #ea580c 100%);
 }
