@@ -36,21 +36,23 @@ const Partners = () => {
         </div>
 
         {/* Infinite scroll animation */}
-        <div className="relative">
-          <div className="flex animate-scroll whitespace-nowrap">
-            {/* First set of logos */}
-            {partners.concat(partners).map((partner, index) => (
-              <div 
-                key={index} 
-                className="flex-shrink-0 mx-8 flex items-center justify-center w-40 h-24 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-              >
-                <img 
-                  src={partner.logo} 
-                  alt={partner.name}
-                  className="max-w-32 max-h-16 object-contain"
-                />
-              </div>
-            ))}
+        <div className="relative overflow-hidden">
+          <div className="flex animate-scroll">
+            {/* Duplicate partners multiple times for seamless infinite scroll */}
+            {Array.from({ length: 4 }, (_, setIndex) => 
+              partners.map((partner, index) => (
+                <div 
+                  key={`${setIndex}-${index}`} 
+                  className="flex-shrink-0 mx-8 flex items-center justify-center w-40 h-24 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                >
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name}
+                    className="max-w-32 max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                  />
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>
