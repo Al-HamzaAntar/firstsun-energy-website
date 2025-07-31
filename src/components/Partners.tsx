@@ -39,7 +39,7 @@ const Partners = () => {
         <div className="relative overflow-hidden">
           <div className="flex animate-scroll">
             {/* Duplicate partners multiple times for seamless infinite scroll */}
-            {Array.from({ length: 4 }, (_, setIndex) => 
+            {Array.from({ length: 6 }, (_, setIndex) => 
               partners.map((partner, index) => (
                 <div 
                   key={`${setIndex}-${index}`} 
