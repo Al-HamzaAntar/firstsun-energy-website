@@ -1,7 +1,11 @@
 
 import { Button } from "@/components/ui/button";
+import { ArrowLeft, Phone } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t, isRTL } = useLanguage();
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -41,25 +45,21 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center text-white">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            فرست سن إنرجي
-            <br />
-            <span className="text-orange-400">شريكك نحو طاقة نظيفة</span>
-            <br />
-            <span className="text-2xl md:text-4xl">ومستقبل مستدام</span>
+            {t('hero.title')}
           </h1>
           
           <p className="text-lg md:text-xl mb-8 max-w-4xl mx-auto leading-relaxed opacity-90">
-            كيان هندسي يمني متخصص في حلول الطاقة الشمسية المتكاملة، أنظمة التخزين، التشغيل الذكي، والتدريب الفني المتقدم. 
-            نهدف إلى توفير الطاقة النظيفة والمستدامة للأفراد والشركات والمؤسسات، مع التركيز على تحسين الأداء البيئي وتخفيض التكاليف التشغيلية.
+            {t('hero.subtitle')}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
             <Button 
               size="lg" 
               className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105" 
               onClick={() => scrollToSection('services')}
             >
-              استكشف خدماتنا
+              {t('hero.cta')}
+              <ArrowLeft className={`${isRTL ? 'mr-2 rotate-180' : 'ml-2'} h-5 w-5`} />
             </Button>
             <Button 
               variant="outline" 
@@ -67,7 +67,8 @@ const Hero = () => {
               onClick={() => scrollToSection('contact')} 
               className="border-white hover:bg-white font-semibold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105 text-zinc-800"
             >
-              تواصل معنا
+              <Phone className={`${isRTL ? 'ml-2' : 'mr-2'} h-5 w-5`} />
+              {t('hero.contact')}
             </Button>
           </div>
         </div>
