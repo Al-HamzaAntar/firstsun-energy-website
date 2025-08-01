@@ -94,8 +94,16 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-cairo;
-    direction: rtl;
+    @apply bg-background text-foreground;
+    font-family: 'Cairo', 'Inter', sans-serif;
+  }
+
+  [dir="rtl"] body {
+    font-family: 'Cairo', sans-serif;
+  }
+
+  [dir="ltr"] body {
+    font-family: 'Inter', 'Cairo', sans-serif;
   }
 }
 
@@ -107,6 +115,28 @@ All colors MUST be HSL.
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;  /* Chrome, Safari and Opera */
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="ltr"] {
+  text-align: left;
+}
+
+/* RTL-aware spacing utilities */
+[dir="rtl"] .gap-2 {
+  gap: 0.5rem;
+}
+
+[dir="rtl"] .gap-4 {
+  gap: 1rem;
+}
+
+[dir="rtl"] .gap-8 {
+  gap: 2rem;
 }
 
 .solar-gradient {

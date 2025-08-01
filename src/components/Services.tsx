@@ -1,37 +1,40 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Building, Battery, Globe, Zap, Wrench, Lightbulb } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Services = () => {
+  const { t, isRTL } = useLanguage();
+  
   const services = [
     {
-      title: "تصميم وتنفيذ مشاريع الطاقة الشمسية",
-      description: "دراسة جدوى، تصميم هندسي، وتركيب أنظمة شمسية لمختلف القطاعات، بدءًا من السكنات الفردية وصولًا إلى المشاريع الكبرى.",
+      titleKey: "services.design.title",
+      descriptionKey: "services.design.description",
       icon: Building
     },
     {
-      title: "تركيب وتشغيل أنظمة البطاريات",
-      description: "حلول تخزين طاقة متقدمة لضمان توفر الطاقة عند الحاجة، مع فريق متخصص في حساب كميات الطاقة المطلوبة وتصميم الأنظمة.",
+      titleKey: "services.battery.title", 
+      descriptionKey: "services.battery.description",
       icon: Battery
     },
     {
-      title: "حلول مستقلة وخارج الشبكة (Off-Grid)",
-      description: "توفير أنظمة طاقة شمسية مستقلة تلبي احتياجات المناطق التي لا تتوفر فيها شبكة الكهرباء.",
+      titleKey: "services.offgrid.title",
+      descriptionKey: "services.offgrid.description", 
       icon: Globe
     },
     {
-      title: "توفير المعدات والمستلزمات",
-      description: "نوفر ألواحًا شمسية عالية الجودة، بطاريات ليثيوم متطورة، وعواكس (إنفرتر) من أفضل العلامات التجارية العالمية، بالإضافة إلى عدادات ذكية.",
+      titleKey: "services.equipment.title",
+      descriptionKey: "services.equipment.description",
       icon: Zap
     },
     {
-      title: "دعم فني وتدريب مستمر",
-      description: "خدمات صيانة وإصلاح الأنظمة الشمسية، بالإضافة إلى الدعم الفني والتدريب المتقدم لضمان استمرارية وكفاءة التشغيل.",
+      titleKey: "services.support.title",
+      descriptionKey: "services.support.description",
       icon: Wrench
     },
     {
-      title: "استشارات ومشورة فنية",
-      description: "فريق هندسي متخصص يقدم أفضل الحلول لتقدير التكلفة وتصميم النظام وفقًا لأعلى المعايير، بالتعاون مع أكبر الشركات الاستشارية.",
+      titleKey: "services.consultation.title",
+      descriptionKey: "services.consultation.description",
       icon: Lightbulb
     }
   ];
@@ -41,10 +44,10 @@ const Services = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            خدماتنا <span className="text-solar-blue">المتكاملة</span> في الطاقة الشمسية
+            {t('services.title')}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            نقدم مجموعة شاملة من الخدمات المتخصصة في الطاقة الشمسية لتلبية جميع احتياجاتكم
+            {t('services.subtitle')}
           </p>
         </div>
 
@@ -59,12 +62,12 @@ const Services = () => {
                   <service.icon className="w-12 h-12 text-solar-blue" />
                 </div>
                 <CardTitle className="text-xl font-bold text-gray-900 leading-tight">
-                  {service.title}
+                  {t(service.titleKey)}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-600 leading-relaxed text-center">
-                  {service.description}
+                  {t(service.descriptionKey)}
                 </CardDescription>
               </CardContent>
             </Card>
