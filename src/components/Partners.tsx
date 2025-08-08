@@ -1,5 +1,8 @@
 
+import { useLanguage } from '@/contexts/LanguageContext';
+
 const Partners = () => {
+  const { t } = useLanguage();
   const partners = [
     {
       name: "Mibet Energy",
@@ -28,10 +31,10 @@ const Partners = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            شركاء <span className="text-solar-blue">النجاح</span> حول العالم
+            {t('partners.title')}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            نتعاون مع أفضل الشركات العالمية لنقدم لكم أجود المنتجات والحلول
+            {t('partners.subtitle')}
           </p>
         </div>
 
