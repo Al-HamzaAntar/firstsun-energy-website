@@ -1,4 +1,6 @@
 
+import { useLanguage } from '@/contexts/LanguageContext';
+
 const Footer = () => {
   const { t, isRTL } = useLanguage();
   const currentYear = new Date().getFullYear();
