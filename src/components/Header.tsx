@@ -40,10 +40,10 @@ const Header = () => {
           <Link to="/" className={`flex items-center gap-2 hover:opacity-80 transition-opacity ${isRTL ? 'flex-row-reverse' : ''}`}>
             <img 
               src="/lovable-uploads/8094d4f9-52f3-414c-a63b-974f3d69d914.png" 
-              alt="فرست سن إنرجي" 
+              alt={t('brand.name')} 
               className="h-10 w-auto"
             />
-            <span className="text-xl font-bold text-solar-blue">فرست سن إنرجي</span>
+            <span className="text-xl font-bold text-solar-blue">{t('brand.name')}</span>
           </Link>
 
           {/* Desktop Navigation */}

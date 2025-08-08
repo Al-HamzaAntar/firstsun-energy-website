@@ -48,6 +48,26 @@ const translations: Translations = {
     ar: 'شركة النظم المتطورة للطاقة الشمسية هي شركة متخصصة في تقديم حلول الطاقة الشمسية المتكاملة والمبتكرة. نحن نعمل على توفير أنظمة طاقة شمسية عالية الجودة وموثوقة لمختلف القطاعات السكنية والتجارية والصناعية.', 
     en: 'Advanced Solar Energy Systems Company specializes in providing integrated and innovative solar energy solutions. We work to provide high-quality and reliable solar energy systems for various residential, commercial, and industrial sectors.' 
   },
+  // Brand
+  'brand.name': { ar: 'فرست سن إنرجي', en: 'First Sun Energy' },
+  
+  // About - Detailed content
+  'about.heading': { ar: 'عن شركة فرست سن إنرجي', en: 'About First Sun Energy' },
+  'about.p1': { 
+    ar: 'فرست سن إنرجي هي شركة متخصصة في تقديم حلول متكاملة للطاقة الشمسية، تأسست على رؤية واضحة لتحقيق كفاءة عالية في استغلال الموارد الشمسية. نتمتع بخبرة طويلة في تصميم وتنفيذ مشاريع الطاقة الشمسية لمختلف الاستخدامات السكنية، التجارية، والصناعية.', 
+    en: 'First Sun Energy is specialized in providing end-to-end solar energy solutions, founded on a clear vision to maximize solar resource efficiency. We have extensive experience designing and executing solar projects for residential, commercial, and industrial uses.' 
+  },
+  'about.p2': { 
+    ar: 'فريق عملنا المتنوع يتألف من مهندسين متخصصين في الهندسة الكهربائية والميكانيكية والطاقات المتجددة، يتمتعون بخبرة كبيرة في تصميم حلول مخصصة بدءًا من المشاريع الصغيرة وصولًا إلى المشاريع الضخمة.', 
+    en: 'Our diverse team consists of engineers specialized in electrical, mechanical, and renewable energy disciplines, with strong experience crafting tailored solutions from small installations to large-scale projects.' 
+  },
+  'about.p3': { 
+    ar: 'نلتزم بتقديم حلول مبتكرة ومستدامة، جودة عالية وفق أعلى المعايير الدولية، والالتزام بالمواعيد لرضا عملائنا. نحن شريك موثوق يعمل جاهدًا لتعزيز الانتقال نحو الطاقة النظيفة والمستدامة في المنطقة.', 
+    en: 'We are committed to innovative, sustainable solutions, high quality to international standards, and on-time delivery to ensure customer satisfaction. We are a trusted partner driving the transition to clean, sustainable energy.' 
+  },
+  'about.stats.projects': { ar: 'مشروع منفذ', en: 'Projects Completed' },
+  'about.stats.experience': { ar: 'سنوات خبرة', en: 'Years of Experience' },
+  'about.image.alt': { ar: 'مبنى شركة فرست سن إنرجي', en: 'First Sun Energy company building' },
 
   // Services Section
   'services.title': { ar: 'خدماتنا المتكاملة في الطاقة الشمسية', en: 'Our Comprehensive Solar Energy Services' },
@@ -123,7 +143,15 @@ const translations: Translations = {
     ar: 'نحن شركة رائدة في مجال الطاقة الشمسية، نقدم حلولاً مبتكرة ومستدامة لمستقبل أفضل.', 
     en: 'We are a leading company in solar energy, providing innovative and sustainable solutions for a better future.' 
   },
-  'footer.rights': { ar: 'جميع الحقوق محفوظة', en: 'All rights reserved' }
+  'footer.tagline': { 
+    ar: 'شريكك نحو طاقة نظيفة ومستقبل مستدام. نتخصص في حلول الطاقة الشمسية المتكاملة لجميع القطاعات السكنية والتجارية والصناعية.',
+    en: 'Your partner for clean energy and a sustainable future. We specialize in integrated solar solutions for residential, commercial, and industrial sectors.'
+  },
+  'footer.quickLinks': { ar: 'روابط سريعة', en: 'Quick Links' },
+  'footer.contact': { ar: 'تواصل معنا', en: 'Contact' },
+  'footer.rights': { ar: 'جميع الحقوق محفوظة', en: 'All rights reserved' },
+  'social.facebook': { ar: 'فيسبوك', en: 'Facebook' },
+  'social.instagram': { ar: 'إنستجرام', en: 'Instagram' }
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
