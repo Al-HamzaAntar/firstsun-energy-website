@@ -1,31 +1,34 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Products = () => {
+  const { t } = useLanguage();
+  
   const products = [
     {
-      title: "ألواح شمسية عالية الكفاءة من Mibet Energy",
-      description: "ألواح شمسية عالية الجودة من أشهر العلامات التجارية العالمية، معروفة بكفاءتها العالية في تحويل الطاقة الشمسية إلى كهرباء ومقاومتها للعوامل البيئية وعمرها الطويل. منتجات Mibet Energy اجتازت العديد من شهادات المنتجات مثل اختبار TUV وشهادة AS NZS 1170.",
+      titleKey: "products.solar.title",
+      descriptionKey: "products.solar.description",
       image: "/lovable-uploads/288e13f4-dfd8-42ba-8d2b-e5fc60e4eb89.png",
-      badge: "منتج مميز"
+      badgeKey: "products.solar.badge"
     },
     {
-      title: "بطاريات VALTEK الذكية لليثيوم",
-      description: "قريبًا في الأسواق! بطاريات ذكية وآمنة بعمر افتراضي يصل إلى 6000 دورة شحن/تفريغ، نظام BMS متكامل بتحكم عبر البلوتوث، متوافقة مع الإنفرتر القديم، وهيكل معدني قوي. متوفرة بجميع المقاسات والجهود، وضمان حقيقي لمدة 5 سنوات.",
+      titleKey: "products.batteries.title",
+      descriptionKey: "products.batteries.description",
       image: "/lovable-uploads/fc714e7b-0e8c-41b8-bb63-3754c52e39e8.png",
-      badge: "قريباً"
+      badgeKey: "products.batteries.badge"
     },
     {
-      title: "عواكس SINENG Electric",
-      description: "عواكس من أفخم الأنواع بكفاءة عالية وتكنولوجيا متطورة، تضمن استقرار النظام الكهربائي وتقلل من الفاقد في الطاقة. SINENG Electric هي شركة عالمية ضمن أفضل 4 شركات عالميًا في شحنات محولات الطاقة، وحاصلة على تصنيف Tier 1 من Bloomberg.",
+      titleKey: "products.inverters.title",
+      descriptionKey: "products.inverters.description",
       image: "/lovable-uploads/d31f99a3-4676-428f-9a5e-d3874fc40f1f.png",
-      badge: "Tier 1"
+      badgeKey: "products.inverters.badge"
     },
     {
-      title: "عدادات Hexcell الذكية",
-      description: "عدادات ذكية للمياه والكهرباء من شركة Hexcell الصينية، الرائدة عالميًا في حلول الدفع المسبق (STS) والإدارة عن بُعد. تتميز بجودة تصنيع عالية وشهادات دولية معتمدة مثل STS، KEMA، وMID.",
+      titleKey: "products.meters.title",
+      descriptionKey: "products.meters.description",
       image: "/lovable-uploads/92f5f58d-99b6-47a1-9a0c-e8091c57d698.png",
-      badge: "تقنية ذكية"
+      badgeKey: "products.meters.badge"
     }
   ];
 
@@ -34,10 +37,10 @@ const Products = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            أجود <span className="text-solar-blue">المنتجات العالمية</span> بين يديك
+            {t('products.title')}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            نقدم أفضل المنتجات من العلامات التجارية الرائدة عالمياً في مجال الطاقة الشمسية
+            {t('products.subtitle')}
           </p>
         </div>
 
@@ -50,23 +53,23 @@ const Products = () => {
               <div className="relative">
                 <img 
                   src={product.image} 
-                  alt={product.title}
+                  alt={t(product.titleKey)}
                   className="w-full h-48 object-contain bg-white p-4"
                 />
                 <div className="absolute top-4 right-4">
                   <span className="bg-solar-yellow text-black px-3 py-1 rounded-full text-sm font-semibold">
-                    {product.badge}
+                    {t(product.badgeKey)}
                   </span>
                 </div>
               </div>
               <CardHeader>
                 <CardTitle className="text-xl font-bold text-gray-900 leading-tight">
-                  {product.title}
+                  {t(product.titleKey)}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-600 leading-relaxed">
-                  {product.description}
+                  {t(product.descriptionKey)}
                 </CardDescription>
               </CardContent>
             </Card>
