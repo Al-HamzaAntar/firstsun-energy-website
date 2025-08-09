@@ -151,7 +151,39 @@ const translations: Translations = {
   'footer.contact': { ar: 'تواصل معنا', en: 'Contact' },
   'footer.rights': { ar: 'جميع الحقوق محفوظة', en: 'All rights reserved' },
   'social.facebook': { ar: 'فيسبوك', en: 'Facebook' },
-  'social.instagram': { ar: 'إنستجرام', en: 'Instagram' }
+  'social.instagram': { ar: 'إنستجرام', en: 'Instagram' },
+
+  // Products Section
+  'products.title': { ar: 'منتجاتنا المتخصصة', en: 'Our Specialized Products' },
+  'products.subtitle': { ar: 'نقدم مجموعة شاملة من المنتجات عالية الجودة لأنظمة الطاقة الشمسية', en: 'We offer a comprehensive range of high-quality products for solar energy systems' },
+  
+  'products.panels.badge': { ar: 'الأكثر شعبية', en: 'Most Popular' },
+  'products.panels.title': { ar: 'الألواح الشمسية عالية الكفاءة', en: 'High-Efficiency Solar Panels' },
+  'products.panels.description': { ar: 'ألواح شمسية من أحدث التقنيات بكفاءة عالية ومتانة استثنائية لتوليد أقصى قدر من الطاقة', en: 'Latest technology solar panels with high efficiency and exceptional durability for maximum power generation' },
+  
+  'products.inverters.badge': { ar: 'تقنية متقدمة', en: 'Advanced Technology' },
+  'products.inverters.title': { ar: 'العواكس الذكية (إنفرتر)', en: 'Smart Inverters' },
+  'products.inverters.description': { ar: 'عواكس ذكية بتقنيات متطورة لتحويل التيار المستمر إلى متردد بكفاءة عالية ومراقبة ذكية', en: 'Smart inverters with advanced technologies for converting DC to AC with high efficiency and intelligent monitoring' },
+  
+  'products.batteries.badge': { ar: 'طويل المدى', en: 'Long-lasting' },
+  'products.batteries.title': { ar: 'بطاريات الليثيوم المتطورة', en: 'Advanced Lithium Batteries' },
+  'products.batteries.description': { ar: 'بطاريات ليثيوم عالية السعة مع دورات شحن طويلة وأمان عالي لتخزين الطاقة الشمسية', en: 'High-capacity lithium batteries with long charge cycles and high safety for solar energy storage' },
+  
+  'products.systems.badge': { ar: 'حل متكامل', en: 'Complete Solution' },
+  'products.systems.title': { ar: 'الأنظمة المتكاملة خارج الشبكة', en: 'Complete Off-Grid Systems' },
+  'products.systems.description': { ar: 'أنظمة طاقة شمسية متكاملة ومستقلة مصممة خصيصاً للمناطق النائية والتطبيقات الخاصة', en: 'Complete and independent solar energy systems specially designed for remote areas and special applications' },
+  
+  'products.meters.badge': { ar: 'ذكي', en: 'Smart' },
+  'products.meters.title': { ar: 'العدادات الذكية', en: 'Smart Meters' },
+  'products.meters.description': { ar: 'عدادات ذكية متطورة لمراقبة وإدارة استهلاك الطاقة بدقة عالية مع إمكانية التحكم عن بُعد', en: 'Advanced smart meters for monitoring and managing energy consumption with high accuracy and remote control capabilities' },
+  
+  'products.accessories.badge': { ar: 'ملحقات', en: 'Accessories' },
+  'products.accessories.title': { ar: 'الإكسسوارات والملحقات', en: 'Accessories and Components' },
+  'products.accessories.description': { ar: 'مجموعة شاملة من الملحقات والمكونات اللازمة لتركيب وتشغيل أنظمة الطاقة الشمسية بكفاءة', en: 'Comprehensive range of accessories and components needed for efficient installation and operation of solar energy systems' },
+
+  // Partners Section
+  'partners.title': { ar: 'شركاء النجاح حول العالم', en: 'Global Success Partners' },
+  'partners.subtitle': { ar: 'نتعاون مع أفضل الشركات العالمية لنقدم لكم أجود المنتجات والحلول', en: 'We collaborate with the world\'s best companies to provide you with the finest products and solutions' }
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
