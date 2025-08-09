@@ -23,6 +23,24 @@ type GalleryItem = {
   image: string;
 };
 
+// Responsive columns hook (match Tailwind breakpoints)
+const useGridColumns = () => {
+  const getCols = () => {
+    const w = window.innerWidth;
+    if (w >= 1280) return 4;
+    if (w >= 1024) return 3;
+    if (w >= 768) return 2;
+    return 1;
+  };
+  const [cols, setCols] = useState<number>(getCols());
+  useEffect(() => {
+    const onResize = () => setCols(getCols());
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+  return cols;
+};
+
 const categories: Category[] = [
   { id: "all", label: { ar: "جميع المنتجات", en: "All Products" } },
   { id: "inverters", label: { ar: "عواكس", en: "Inverters" } },
@@ -169,7 +187,8 @@ const allItems: GalleryItem[] = [
 const Gallery = () => {
   const { language, isRTL } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<string>("all");
-
+  const [showAll, setShowAll] = useState(false);
+  const cols = useGridColumns();
   // SEO basics (title + meta description)
   useEffect(() => {
     const titleAr = "معرض المنتجات | طاقة شمسية";
@@ -187,6 +206,11 @@ const Gallery = () => {
     }
     meta.content = language === "ar" ? descAr : descEn;
   }, [language]);
+
+  // Reset pagination when category changes
+  useEffect(() => {
+    setShowAll(false);
+  }, [activeCategory]);
 
   const items = useMemo(() => allItems, []);
 
@@ -233,6 +257,10 @@ const Gallery = () => {
     </div>
   );
 
+  const initialVisible = cols * 3;
+  const totalActive = filteredItems(activeCategory).length;
+  const shouldShowButton = !showAll && totalActive > initialVisible;
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
       <Header />
@@ -269,7 +297,7 @@ const Gallery = () => {
       {/* Gallery Content with Tabs */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <Tabs defaultValue="all" className="w-full">
+          <Tabs value={activeCategory} onValueChange={(v) => setActiveCategory(v)} className="w-full">
             {/* Desktop Tabs */}
             <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-11 mb-8 h-auto p-1 bg-white shadow-lg rounded-xl gap-1">
               {categories.map((category) => (
@@ -277,25 +305,34 @@ const Gallery = () => {
                   key={category.id}
                   value={category.id}
                   className="text-sm font-medium px-3 py-2 rounded-lg data-[state=active]:bg-blue-500 data-[state=active]:text-white transition-all duration-300"
-                  onClick={() => setActiveCategory(category.id)}
                 >
                   {category.label[language as Lang]}
                 </TabsTrigger>
               ))}
             </TabsList>
 
-            {categories.map((category) => (
-              <TabsContent key={category.id} value={category.id} className="mt-8">
-                {renderProductGrid(filteredItems(category.id))}
-              </TabsContent>
-            ))}
+            {categories.map((category) => {
+              const list = filteredItems(category.id);
+              const isActive = category.id === activeCategory;
+              const itemsToRender = isActive ? (showAll ? list : list.slice(0, initialVisible)) : list;
+              return (
+                <TabsContent key={category.id} value={category.id} className="mt-8">
+                  {renderProductGrid(itemsToRender)}
+                </TabsContent>
+              );
+            })}
           </Tabs>
 
           {/* Load More Button */}
           <div className="text-center mt-12">
-            <button className="bg-gradient-to-r from-blue-600 to-orange-500 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-              {language === "ar" ? "عرض المزيد من المنتجات" : "Load more products"}
-            </button>
+            {shouldShowButton && (
+              <button
+                onClick={() => setShowAll(true)}
+                className="bg-gradient-to-r from-blue-600 to-orange-500 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+              >
+                {language === "ar" ? "عرض المزيد من المنتجات" : "Load more products"}
+              </button>
+            )}
           </div>
         </div>
       </section>
