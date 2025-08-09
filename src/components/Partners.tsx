@@ -2,7 +2,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Partners = () => {
-  const { t } = useLanguage();
+  const { t, isRTL } = useLanguage();
   const partners = [
     {
       name: "Mibet Energy",
@@ -40,22 +40,28 @@ const Partners = () => {
 
         {/* Infinite scroll animation */}
         <div className="relative overflow-hidden">
-          <div className="flex animate-scroll">
-            {/* Duplicate partners multiple times for seamless infinite scroll */}
-            {Array.from({ length: 6 }, (_, setIndex) => 
-              partners.map((partner, index) => (
-                <div 
-                  key={`${setIndex}-${index}`} 
-                  className="flex-shrink-0 mx-8 flex items-center justify-center w-40 h-24 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-                >
-                  <img 
-                    src={partner.logo} 
-                    alt={partner.name}
-                    className="max-w-32 max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                  />
-                </div>
-              ))
-            )}
+          <div
+            className="flex w-max animate-scroll will-change-transform"
+            style={{ animationDirection: isRTL ? 'reverse' : 'normal' }}
+          >
+            {/* Two identical sets for seamless looping */}
+            {[0, 1].map((dup) => (
+              <div className="flex" aria-hidden={dup === 1} key={dup}>
+                {partners.map((partner, index) => (
+                  <div
+                    key={`${dup}-${index}`}
+                    className="flex-shrink-0 mx-8 flex items-center justify-center w-40 h-24 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                  >
+                    <img
+                      src={partner.logo}
+                      alt={partner.name}
+                      className="max-w-32 max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </div>
