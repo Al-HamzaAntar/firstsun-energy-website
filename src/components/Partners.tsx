@@ -41,11 +41,7 @@ const Partners = () => {
         {/* Infinite scroll animation */}
         <div className="relative overflow-hidden">
           <div
-            className="flex w-max animate-scroll will-change-transform"
-            style={{ 
-              animationDirection: isRTL ? 'reverse' : 'normal',
-              animationPlayState: 'running'
-            }}
+            className={`flex w-max will-change-transform ${isRTL ? 'animate-scroll-rtl' : 'animate-scroll'}`}
           >
             {/* Two identical sets for seamless looping */}
             {[...Array(2)].map((_, dup) => (
