@@ -42,20 +42,23 @@ const Partners = () => {
         <div className="relative overflow-hidden">
           <div
             className="flex w-max animate-scroll will-change-transform"
-            style={{ animationDirection: isRTL ? 'reverse' : 'normal' }}
+            style={{ 
+              animationDirection: isRTL ? 'reverse' : 'normal',
+              animationPlayState: 'running'
+            }}
           >
             {/* Two identical sets for seamless looping */}
-            {[0, 1].map((dup) => (
-              <div className="flex" aria-hidden={dup === 1} key={dup}>
+            {[...Array(2)].map((_, dup) => (
+              <div className="flex shrink-0" aria-hidden={dup === 1} key={dup}>
                 {partners.map((partner, index) => (
                   <div
                     key={`${dup}-${index}`}
-                    className="flex-shrink-0 mx-8 flex items-center justify-center w-40 h-24 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                    className="flex-shrink-0 mx-6 flex items-center justify-center w-36 h-20 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105"
                   >
                     <img
                       src={partner.logo}
                       alt={partner.name}
-                      className="max-w-32 max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                      className="max-w-28 max-h-14 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                       loading="lazy"
                     />
                   </div>
