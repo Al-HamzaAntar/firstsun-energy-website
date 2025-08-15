@@ -7,10 +7,10 @@ const Products = () => {
   
   const products = [
     {
-      titleKey: "products.solar.title",
-      descriptionKey: "products.solar.description",
+      titleKey: "products.panels.title",
+      descriptionKey: "products.panels.description",
       image: "/lovable-uploads/288e13f4-dfd8-42ba-8d2b-e5fc60e4eb89.png",
-      badgeKey: "products.solar.badge"
+      badgeKey: "products.panels.badge"
     },
     {
       titleKey: "products.batteries.title",
