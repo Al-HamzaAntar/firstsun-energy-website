@@ -70,7 +70,7 @@ const Header = () => {
               <span>{t('nav.services')}</span>
             </button>
             <button 
-              onClick={() => scrollToSection('partners')}
+              onClick={() => scrollToSection('products')}
               className={`flex items-center gap-2 text-gray-700 hover:text-solar-blue transition-colors font-medium ${isRTL ? 'flex-row-reverse' : ''}`}
             >
               <Package size={18} />
