@@ -136,6 +136,15 @@ const translations: Translations = {
   'contact.send': { ar: 'إرسال الرسالة', en: 'Send Message' },
   'contact.phone': { ar: 'الهاتف', en: 'Phone' },
   'contact.address': { ar: 'العنوان', en: 'Address' },
+  'contact.infoHeading': { ar: 'معلومات التواصل', en: 'Contact Information' },
+  'contact.mapHeading': { ar: 'موقعنا على الخريطة', en: 'Our Location' },
+  'contact.primaryEmail': { ar: 'البريد الإلكتروني الرئيسي', en: 'Primary Email' },
+  'contact.generalInfo': { ar: 'معلومات عامة', en: 'General Information' },
+  'contact.maintenance': { ar: 'الصيانة', en: 'Maintenance' },
+  'contact.purchases': { ar: 'المشتريات', en: 'Purchases' },
+  'contact.sales': { ar: 'المبيعات', en: 'Sales' },
+  'contact.street': { ar: 'شارع الزبيري، صنعاء', en: 'Al-Zubairi Street, Sana\'a' },
+  'contact.cityCountry': { ar: 'صنعاء، اليمن', en: 'Sana\'a, Yemen' },
 
   // Footer
   'footer.company': { ar: 'شركة النظم المتطورة للطاقة الشمسية', en: 'Advanced Solar Energy Systems Company' },
