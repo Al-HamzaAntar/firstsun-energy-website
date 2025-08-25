@@ -222,6 +222,18 @@ const Gallery = () => {
     return items.filter((it) => it.categoryId === categoryId);
   };
 
+  const handleProductClick = (item: GalleryItem) => {
+    const title = item.title[language as Lang];
+    const message = language === "ar" 
+      ? `مرحباً، أرغب في الاستفسار عن المنتج: ${title}`
+      : `Hello, I would like to inquire about the product: ${title}`;
+    
+    const whatsappNumber = "+966123456789"; // Replace with your actual WhatsApp number
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    
+    window.open(whatsappUrl, '_blank');
+  };
+
   const renderProductGrid = (list: GalleryItem[]) => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {list.map((item) => {
@@ -230,7 +242,8 @@ const Gallery = () => {
         return (
           <Card
             key={item.id}
-            className="group hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden bg-white"
+            className="group hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden bg-white cursor-pointer"
+            onClick={() => handleProductClick(item)}
           >
             <div className="relative overflow-hidden">
               <img
@@ -250,6 +263,9 @@ const Gallery = () => {
                 {title}
               </h3>
               <p className="text-gray-600 text-sm">{chip}</p>
+              <div className="mt-3 text-green-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {language === "ar" ? "اضغط للتواصل عبر الواتساب" : "Click to contact via WhatsApp"}
+              </div>
             </CardContent>
           </Card>
         );
