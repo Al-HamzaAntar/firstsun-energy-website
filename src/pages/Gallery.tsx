@@ -182,6 +182,67 @@ const allItems: GalleryItem[] = [
     categoryId: "install-tools",
     image: "/lovable-uploads/f5f775a2-29a3-438a-bc05-0530ffff576f.png",
   },
+  // New products from uploaded images
+  {
+    id: 21,
+    title: { ar: "لوحة تحكم CNC الكهربائية مع شاشة", en: "CNC Electrical Control Panel with Display" },
+    categoryId: "control-systems",
+    image: "/lovable-uploads/4d1a7863-8651-4742-9e6a-9810e78cbf86.png",
+  },
+  {
+    id: 22,
+    title: { ar: "مجموعة مفاتيح ربط DANMI الاحترافية", en: "DANMI Professional Ratchet Wrench Set" },
+    categoryId: "install-tools",
+    image: "/lovable-uploads/cd772831-ff43-4746-85fe-4397ec93dd66.png",
+  },
+  {
+    id: 23,
+    title: { ar: "لوحة تحكم CNC الكهربائية", en: "CNC Electrical Control Panel" },
+    categoryId: "control-systems",
+    image: "/lovable-uploads/d3a247b0-c08d-4204-a310-f697179b41c3.png",
+  },
+  {
+    id: 24,
+    title: { ar: "لوحة قواطع CNC الكهربائية", en: "CNC Electrical Breaker Panel" },
+    categoryId: "control-systems",
+    image: "/lovable-uploads/c679098a-0352-4400-947f-32aa3efe52a0.png",
+  },
+  {
+    id: 25,
+    title: { ar: "جدار عرض CNC للمكونات الكهربائية", en: "CNC Electrical Components Display Wall" },
+    categoryId: "control-systems",
+    image: "/lovable-uploads/da6e5be8-4ee5-48d9-ab25-23a9c2390b44.png",
+  },
+  {
+    id: 26,
+    title: { ar: "مفاتيح تحكم برتقالية متخصصة", en: "Specialized Orange Control Switches" },
+    categoryId: "control-systems",
+    image: "/lovable-uploads/32654869-bf3d-4f27-bd2d-7f148f956721.png",
+  },
+  {
+    id: 27,
+    title: { ar: "قفل ذكي KK ذهبي فاخر", en: "KK Premium Gold Smart Lock" },
+    categoryId: "security-systems",
+    image: "/lovable-uploads/5b0175b8-ecc5-45ea-9553-0254096d45e2.png",
+  },
+  {
+    id: 28,
+    title: { ar: "قاطع كهربائي صناعي", en: "Industrial Circuit Breaker" },
+    categoryId: "safety-equipment",
+    image: "/lovable-uploads/67b18ec1-4a20-48ca-a110-6cc124beeb03.png",
+  },
+  {
+    id: 29,
+    title: { ar: "قفل ذكي KK أسود متطور", en: "KK Advanced Black Smart Lock" },
+    categoryId: "security-systems",
+    image: "/lovable-uploads/fbaddf53-fc3d-4462-b678-b9539c2788af.png",
+  },
+  {
+    id: 30,
+    title: { ar: "قفل KK أمني عالي الجودة", en: "KK High-Security Padlock" },
+    categoryId: "security-systems",
+    image: "/lovable-uploads/db57f41c-cbf7-445f-9449-1305db9e10a6.png",
+  },
 ];
 
 const Gallery = () => {
