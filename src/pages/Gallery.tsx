@@ -304,6 +304,61 @@ const allItems: GalleryItem[] = [
     categoryId: "install-tools",
     image: "/lovable-uploads/1e00f050-bfe8-4f10-9182-51e1f2ee5cb2.png",
   },
+  // Latest batch of products
+  {
+    id: 41,
+    title: { ar: "حقيبة أدوات UNI-T الاحترافية", en: "UNI-T Professional Tool Case" },
+    categoryId: "measurement-tools",
+    image: "/lovable-uploads/9f0e9993-4a92-4c44-bef6-aedbb5c96f71.png",
+  },
+  {
+    id: 42,
+    title: { ar: "موصلات كهربائية CONTECH ملونة", en: "CONTECH Colored Electrical Connectors" },
+    categoryId: "accessories",
+    image: "/lovable-uploads/b1766137-ac14-4468-a0af-448d0bf551bb.png",
+  },
+  {
+    id: 43,
+    title: { ar: "مجموعة مفاتيح DANMI السداسية القابلة للطي", en: "DANMI Folding Hex Key Set" },
+    categoryId: "install-tools",
+    image: "/lovable-uploads/fb4b24b4-2e89-4f2c-9c64-b93c501ef3a8.png",
+  },
+  {
+    id: 44,
+    title: { ar: "شريط قياس DANMI الاحترافي", en: "DANMI Professional Measuring Tape" },
+    categoryId: "measurement-tools",
+    image: "/lovable-uploads/cb2b0cf3-a06c-4341-aa9d-c5059c1742ba.png",
+  },
+  {
+    id: 45,
+    title: { ar: "أداة تجريد الأسلاك DANMI", en: "DANMI Wire Stripping Tool" },
+    categoryId: "install-tools",
+    image: "/lovable-uploads/dd4bf2dc-de57-4f0a-b43e-557c6566920b.png",
+  },
+  {
+    id: 46,
+    title: { ar: "كماشة DANMI الاحترافية", en: "DANMI Professional Pliers" },
+    categoryId: "install-tools",
+    image: "/lovable-uploads/84db1671-1311-4ca3-8f70-d38e9833d0d4.png",
+  },
+  {
+    id: 47,
+    title: { ar: "جهاز قياس CHNT الذكي مع مجسات", en: "CHNT Smart Meter with Sensors" },
+    categoryId: "measurement-tools",
+    image: "/lovable-uploads/fef18507-0c37-44d1-bcaa-b03156c16320.png",
+  },
+  {
+    id: 48,
+    title: { ar: "كاشف الجهد DANMI الاحترافي", en: "DANMI Professional Voltage Detector" },
+    categoryId: "measurement-tools",
+    image: "/lovable-uploads/f0968e03-22c9-4a35-aed5-c64a67e93a0e.png",
+  },
+  {
+    id: 49,
+    title: { ar: "أطراف كابلات نحاسية متنوعة الأحجام", en: "Various Size Copper Cable Lugs" },
+    categoryId: "accessories",
+    image: "/lovable-uploads/ac699cb8-bbdf-40a3-bbe0-549b229d9276.png",
+  },
 ];
 
 const Gallery = () => {
