@@ -243,6 +243,67 @@ const allItems: GalleryItem[] = [
     categoryId: "security-systems",
     image: "/lovable-uploads/db57f41c-cbf7-445f-9449-1305db9e10a6.png",
   },
+  // Additional new products from latest upload
+  {
+    id: 31,
+    title: { ar: "نظام تخزين RJETech الأبيض المتطور", en: "RJETech Advanced White Storage System" },
+    categoryId: "storage-systems",
+    image: "/lovable-uploads/16997a4d-03ce-494c-bd47-4f02d9d6b43b.png",
+  },
+  {
+    id: 32,
+    title: { ar: "جهاز قياس DANMI الذكي متعدد الوظائف", en: "DANMI Smart Multimeter ART-390804" },
+    categoryId: "measurement-tools",
+    image: "/lovable-uploads/337fa4e4-67ed-49d0-8aa8-0bf68480b355.png",
+  },
+  {
+    id: 33,
+    title: { ar: "حقيبة أدوات DANMI الاحترافية", en: "DANMI Professional Tool Bag" },
+    categoryId: "install-tools",
+    image: "/lovable-uploads/7b23a094-bd4b-4a10-9688-cfb6bc8c87fb.png",
+  },
+  {
+    id: 34,
+    title: { ar: "مجموعة مفكات DANMI الاحترافية", en: "DANMI Professional Screwdriver Set" },
+    categoryId: "install-tools",
+    image: "/lovable-uploads/3f127859-c444-48f2-b6b8-36032ad2ca1b.png",
+  },
+  {
+    id: 35,
+    title: { ar: "عاكس GEFRAN ADV200 SP المتطور", en: "GEFRAN ADV200 SP Advanced Inverter" },
+    categoryId: "inverters",
+    image: "/lovable-uploads/14315647-68a7-4310-9e80-99ce137b08f0.png",
+  },
+  {
+    id: 36,
+    title: { ar: "عاكس 1st SUN ENERGY الأزرق مع شاشة", en: "1st SUN ENERGY Blue Inverter with Display" },
+    categoryId: "inverters",
+    image: "/lovable-uploads/516b10cb-0079-46bf-b839-842d9cb96474.png",
+  },
+  {
+    id: 37,
+    title: { ar: "عاكس 1st SUN ENERGY الأزرق المدمج", en: "1st SUN ENERGY Compact Blue Inverter" },
+    categoryId: "inverters",
+    image: "/lovable-uploads/200d8967-8c72-4d35-a91c-7cb6c8f16da1.png",
+  },
+  {
+    id: 38,
+    title: { ar: "محرك تردد INVT المتغير", en: "INVT Variable Frequency Drive" },
+    categoryId: "inverters",
+    image: "/lovable-uploads/146ac15f-a374-4626-8b6f-630fe5f58837.png",
+  },
+  {
+    id: 39,
+    title: { ar: "نظام طاقة DAYS ENERGY الأزرق", en: "DAYS ENERGY Blue Power System" },
+    categoryId: "storage-systems",
+    image: "/lovable-uploads/7c77495e-90ba-4c88-9159-f9f9f7f39bf7.png",
+  },
+  {
+    id: 40,
+    title: { ar: "مجموعة أدوات الكبس الاحترافية", en: "Professional Crimping Tools Set" },
+    categoryId: "install-tools",
+    image: "/lovable-uploads/1e00f050-bfe8-4f10-9182-51e1f2ee5cb2.png",
+  },
 ];
 
 const Gallery = () => {
