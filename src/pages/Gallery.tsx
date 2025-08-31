@@ -405,10 +405,25 @@ const Gallery = () => {
       ? `مرحباً، أرغب في الاستفسار عن المنتج: ${title}`
       : `Hello, I would like to inquire about the product: ${title}`;
     
-    const whatsappNumber = "+966123456789"; // Replace with your actual WhatsApp number
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    const whatsappNumber = "966123456789"; // Replace with your actual WhatsApp number (without +)
     
-    window.open(whatsappUrl, '_blank');
+    // Try wa.me first, fallback to web.whatsapp.com if blocked
+    const tryWhatsApp = () => {
+      const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      const webUrl = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
+      
+      // Try opening wa.me first
+      const popup = window.open(waUrl, '_blank');
+      
+      // If popup is blocked or fails, try web.whatsapp.com
+      if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+        setTimeout(() => {
+          window.open(webUrl, '_blank');
+        }, 100);
+      }
+    };
+    
+    tryWhatsApp();
   };
 
   const renderProductGrid = (list: GalleryItem[]) => (
