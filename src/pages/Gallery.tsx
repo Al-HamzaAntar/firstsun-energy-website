@@ -2,11 +2,14 @@
 import { useEffect, useMemo, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft, Copy, MessageCircle, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useToast } from "@/hooks/use-toast";
 
 // Types
 type Lang = "ar" | "en";
@@ -363,8 +366,12 @@ const allItems: GalleryItem[] = [
 
 const Gallery = () => {
   const { language, isRTL } = useLanguage();
+  const { toast } = useToast();
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [showAll, setShowAll] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<GalleryItem | null>(null);
+  const [isConnecting, setIsConnecting] = useState(false);
   const cols = useGridColumns();
   // SEO basics (title + meta description)
   useEffect(() => {
@@ -400,24 +407,88 @@ const Gallery = () => {
   };
 
   const handleProductClick = (item: GalleryItem) => {
+    setSelectedProduct(item);
+    tryWhatsAppConnection(item);
+  };
+
+  const tryWhatsAppConnection = async (item: GalleryItem) => {
+    setIsConnecting(true);
     const title = item.title[language as Lang];
     const message = language === "ar" 
       ? `مرحباً، أرغب في الاستفسار عن المنتج: ${title}`
       : `Hello, I would like to inquire about the product: ${title}`;
     
-    const whatsappNumber = "966123456789"; // Replace with your actual WhatsApp number (without +)
+    const whatsappNumber = "966123456789";
     const encodedMessage = encodeURIComponent(message);
     
-    // Use web.whatsapp.com directly to avoid any blocking issues
-    const whatsappUrl = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
-    
-    // Open in new tab
-    const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-    
-    // Fallback for mobile devices - try WhatsApp app directly
-    if (!newWindow) {
-      window.location.href = `whatsapp://send?phone=${whatsappNumber}&text=${encodedMessage}`;
+    const methods = [
+      // Method 1: wa.me (most reliable)
+      () => `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
+      // Method 2: WhatsApp app scheme
+      () => `whatsapp://send?phone=${whatsappNumber}&text=${encodedMessage}`,
+      // Method 3: Web WhatsApp
+      () => `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`,
+    ];
+
+    for (let i = 0; i < methods.length; i++) {
+      try {
+        const url = methods[i]();
+        const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+        
+        // Give it time to load
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Check if window opened successfully
+        if (newWindow && !newWindow.closed) {
+          setIsConnecting(false);
+          toast({
+            title: language === "ar" ? "تم فتح واتساب" : "WhatsApp Opened",
+            description: language === "ar" ? "تم توجيهك إلى واتساب" : "You've been redirected to WhatsApp",
+          });
+          return;
+        }
+      } catch (error) {
+        console.log(`Method ${i + 1} failed, trying next...`);
+      }
     }
+    
+    // If all methods fail, show modal with alternatives
+    setIsConnecting(false);
+    setShowContactModal(true);
+  };
+
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      toast({
+        title: language === "ar" ? "تم النسخ" : "Copied",
+        description: language === "ar" ? "تم نسخ النص إلى الحافظة" : "Text copied to clipboard",
+      });
+    } catch (error) {
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      toast({
+        title: language === "ar" ? "تم النسخ" : "Copied",
+        description: language === "ar" ? "تم نسخ النص إلى الحافظة" : "Text copied to clipboard",
+      });
+    }
+  };
+
+  const handleManualContact = () => {
+    if (!selectedProduct) return;
+    
+    const title = selectedProduct.title[language as Lang];
+    const message = language === "ar" 
+      ? `مرحباً، أرغب في الاستفسار عن المنتج: ${title}`
+      : `Hello, I would like to inquire about the product: ${title}`;
+    
+    const contactInfo = `${language === "ar" ? "رقم واتساب:" : "WhatsApp:"} +966123456789\n${language === "ar" ? "الرسالة:" : "Message:"} ${message}`;
+    copyToClipboard(contactInfo);
   };
 
   const renderProductGrid = (list: GalleryItem[]) => (
@@ -540,6 +611,70 @@ const Gallery = () => {
       </section>
 
       <Footer />
+
+      {/* Contact Modal */}
+      <Dialog open={showContactModal} onOpenChange={setShowContactModal}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <MessageCircle className="w-5 h-5" />
+              {language === "ar" ? "طرق التواصل البديلة" : "Alternative Contact Methods"}
+            </DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              {language === "ar" 
+                ? "يبدو أن واتساب محجوب أو غير متاح. يمكنك استخدام الطرق التالية للتواصل:"
+                : "WhatsApp seems to be blocked or unavailable. You can use these alternative methods:"}
+            </p>
+            
+            <div className="space-y-3">
+              <Button
+                onClick={handleManualContact}
+                className="w-full justify-start gap-2"
+                variant="outline"
+              >
+                <Copy className="w-4 h-4" />
+                {language === "ar" ? "نسخ معلومات الاتصال" : "Copy Contact Info"}
+              </Button>
+              
+              <div className="bg-muted p-3 rounded-lg">
+                <p className="text-sm font-medium mb-1">
+                  {language === "ar" ? "رقم الواتساب:" : "WhatsApp Number:"}
+                </p>
+                <p className="text-sm font-mono">+966123456789</p>
+                
+                {selectedProduct && (
+                  <>
+                    <p className="text-sm font-medium mb-1 mt-2">
+                      {language === "ar" ? "المنتج:" : "Product:"}
+                    </p>
+                    <p className="text-sm">{selectedProduct.title[language as Lang]}</p>
+                  </>
+                )}
+              </div>
+              
+              <p className="text-xs text-muted-foreground">
+                {language === "ar" 
+                  ? "يمكنك نسخ المعلومات وإرسالها عبر أي تطبيق مراسلة أو البريد الإلكتروني"
+                  : "You can copy this information and send it via any messaging app or email"}
+              </p>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Loading Overlay */}
+      {isConnecting && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 flex items-center gap-3">
+            <Loader2 className="w-5 h-5 animate-spin" />
+            <span>
+              {language === "ar" ? "جارٍ الاتصال بواتساب..." : "Connecting to WhatsApp..."}
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
