@@ -642,7 +642,7 @@ const Gallery = () => {
                 <p className="text-sm font-medium mb-1">
                   {language === "ar" ? "رقم الواتساب:" : "WhatsApp Number:"}
                 </p>
-                <p className="text-sm font-mono">+966123456789</p>
+                <p className="text-sm font-mono">+967 771 070 031</p>
                 
                 {selectedProduct && (
                   <>
