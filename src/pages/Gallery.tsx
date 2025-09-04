@@ -487,7 +487,7 @@ const Gallery = () => {
       ? `مرحباً، أرغب في الاستفسار عن المنتج: ${title}`
       : `Hello, I would like to inquire about the product: ${title}`;
     
-    const contactInfo = `${language === "ar" ? "رقم واتساب:" : "WhatsApp:"} +966123456789\n${language === "ar" ? "الرسالة:" : "Message:"} ${message}`;
+    const contactInfo = `${language === "ar" ? "رقم واتساب:" : "WhatsApp:"} +967 771 070 031\n${language === "ar" ? "الرسالة:" : "Message:"} ${message}`;
     copyToClipboard(contactInfo);
   };
 
