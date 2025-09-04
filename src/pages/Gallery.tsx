@@ -4,9 +4,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowRight, ArrowLeft, Copy, MessageCircle, Loader2 } from "lucide-react";
+import { ArrowRight, ArrowLeft, Copy, MessageCircle, Loader2, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/hooks/use-toast";
@@ -372,6 +373,7 @@ const Gallery = () => {
   const [showContactModal, setShowContactModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<GalleryItem | null>(null);
   const [isConnecting, setIsConnecting] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const cols = useGridColumns();
   // SEO basics (title + meta description)
   useEffect(() => {
@@ -402,8 +404,15 @@ const Gallery = () => {
     (categories.find((c) => c.id === id)?.label[language as Lang]) || id;
 
   const filteredItems = (categoryId: string) => {
-    if (categoryId === "all") return items;
-    return items.filter((it) => it.categoryId === categoryId);
+    let filtered = categoryId === "all" ? items : items.filter((it) => it.categoryId === categoryId);
+    
+    if (searchQuery.trim()) {
+      filtered = filtered.filter((item) =>
+        item.title[language as Lang].toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+    
+    return filtered;
   };
 
   const handleProductClick = (item: GalleryItem) => {
@@ -570,6 +579,21 @@ const Gallery = () => {
       {/* Gallery Content with Tabs */}
       <section className="py-16">
         <div className="container mx-auto px-4">
+          {/* Search Bar */}
+          <div className="max-w-md mx-auto mb-8">
+            <div className="relative">
+              <Search className={`absolute ${isRTL ? 'right-3' : 'left-3'} top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5`} />
+              <Input
+                type="text"
+                placeholder={language === "ar" ? "ابحث عن المنتجات..." : "Search products..."}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className={`w-full ${isRTL ? 'pr-10 pl-4' : 'pl-10 pr-4'} py-3 rounded-full border-2 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300`}
+                dir={isRTL ? 'rtl' : 'ltr'}
+              />
+            </div>
+          </div>
+          
           <Tabs value={activeCategory} onValueChange={(v) => setActiveCategory(v)} className="w-full">
             {/* Desktop Tabs */}
             <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-11 mb-8 h-auto p-1 bg-white shadow-lg rounded-xl gap-1">
