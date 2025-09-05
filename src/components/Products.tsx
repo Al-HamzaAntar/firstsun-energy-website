@@ -29,6 +29,18 @@ const Products = () => {
       descriptionKey: "products.meters.description",
       image: "/lovable-uploads/92f5f58d-99b6-47a1-9a0c-e8091c57d698.png",
       badgeKey: "products.meters.badge"
+    },
+    {
+      titleKey: "products.rjetech.title",
+      descriptionKey: "products.rjetech.description",
+      image: "/lovable-uploads/398c6543-f93f-4c77-87f2-f7b496829112.png",
+      badgeKey: "products.rjetech.badge"
+    },
+    {
+      titleKey: "products.danmi.title",
+      descriptionKey: "products.danmi.description",
+      image: "/lovable-uploads/5156740a-47f9-40a0-ab6f-65a79e67963e.png",
+      badgeKey: "products.danmi.badge"
     }
   ];
 
@@ -44,7 +56,7 @@ const Products = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
             <Card 
               key={index} 

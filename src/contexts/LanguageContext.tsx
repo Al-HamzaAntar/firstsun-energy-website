@@ -189,6 +189,14 @@ const translations: Translations = {
   'products.accessories.badge': { ar: 'ملحقات', en: 'Accessories' },
   'products.accessories.title': { ar: 'الإكسسوارات والملحقات', en: 'Accessories and Components' },
   'products.accessories.description': { ar: 'مجموعة شاملة من الملحقات والمكونات اللازمة لتركيب وتشغيل أنظمة الطاقة الشمسية بكفاءة', en: 'Comprehensive range of accessories and components needed for efficient installation and operation of solar energy systems' },
+  
+  'products.rjetech.badge': { ar: 'متقدم', en: 'Advanced' },
+  'products.rjetech.title': { ar: 'RJEtech', en: 'RJEtech' },
+  'products.rjetech.description': { ar: 'حلول تقنية متطورة ومعدات عالية الجودة لأنظمة الطاقة الشمسية بأحدث التقنيات', en: 'Advanced technical solutions and high-quality equipment for solar energy systems with cutting-edge technology' },
+  
+  'products.danmi.badge': { ar: 'موثوق', en: 'Reliable' },
+  'products.danmi.title': { ar: 'DANMI', en: 'DANMI' },
+  'products.danmi.description': { ar: 'منتجات موثوقة وعالية الأداء لأنظمة الطاقة الشمسية مع ضمان طويل المدى', en: 'Reliable and high-performance products for solar energy systems with long-term warranty' },
 
   // Partners Section
   'partners.title': { ar: 'شركاء النجاح حول العالم', en: 'Global Success Partners' },
