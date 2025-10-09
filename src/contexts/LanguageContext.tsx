@@ -28,8 +28,8 @@ const translations: Translations = {
 
   // Hero Section
   'hero.title': { 
-    ar: 'مرحباً بكم في شركة النظم المتطورة للطاقة الشمسية', 
-    en: 'Welcome to Advanced Solar Energy Systems Company' 
+    ar: 'شركة متخصصة في تقديم حلول متكاملة للطاقة الشمسية، تهدف إلى توفير الطاقة النظيفة والمستدامة', 
+    en: 'A company specialized in providing integrated solar energy solutions, aiming to deliver clean and sustainable energy' 
   },
   'hero.subtitle': { 
     ar: 'نحن متخصصون في تقديم حلول الطاقة الشمسية المتكاملة والمبتكرة لجميع القطاعات', 
@@ -143,7 +143,7 @@ const translations: Translations = {
   'contact.maintenance': { ar: 'الصيانة', en: 'Maintenance' },
   'contact.purchases': { ar: 'المشتريات', en: 'Purchases' },
   'contact.sales': { ar: 'المبيعات', en: 'Sales' },
-  'contact.street': { ar: 'شارع الزبيري، صنعاء', en: 'Al-Zubairi Street, Sana\'a' },
+  'contact.street': { ar: 'شارع الأربعين، بيت بوس، صنعاء', en: 'Al-Arbaeen Street, Sana\'a' },
   'contact.cityCountry': { ar: 'صنعاء، اليمن', en: 'Sana\'a, Yemen' },
 
   // Footer

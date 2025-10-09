@@ -20,11 +20,11 @@ const About = () => {
 
             <div className="grid grid-cols-2 gap-6 mt-8">
               <div className="text-center p-4 bg-white rounded-lg shadow-md border-t-4 border-blue-500">
-                <div className="text-3xl font-bold text-blue-600 mb-2">100+</div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">3500+</div>
                 <div className="text-gray-600">{t('about.stats.projects')}</div>
               </div>
               <div className="text-center p-4 bg-white rounded-lg shadow-md border-t-4 border-orange-500">
-                <div className="text-3xl font-bold text-orange-600 mb-2">5+</div>
+                <div className="text-3xl font-bold text-orange-600 mb-2">20+</div>
                 <div className="text-gray-600">{t('about.stats.experience')}</div>
               </div>
             </div>
