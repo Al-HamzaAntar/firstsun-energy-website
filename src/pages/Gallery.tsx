@@ -374,6 +374,7 @@ const Gallery = () => {
   const [selectedProduct, setSelectedProduct] = useState<GalleryItem | null>(null);
   const [isConnecting, setIsConnecting] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [showProductModal, setShowProductModal] = useState(false);
   const cols = useGridColumns();
   // SEO basics (title + meta description)
   useEffect(() => {
@@ -417,7 +418,13 @@ const Gallery = () => {
 
   const handleProductClick = (item: GalleryItem) => {
     setSelectedProduct(item);
-    tryWhatsAppConnection(item);
+    setShowProductModal(true);
+  };
+
+  const handleWhatsAppContact = () => {
+    if (selectedProduct) {
+      tryWhatsAppConnection(selectedProduct);
+    }
   };
 
   const tryWhatsAppConnection = async (item: GalleryItem) => {
@@ -635,6 +642,72 @@ const Gallery = () => {
       </section>
 
       <Footer />
+
+      {/* Product Details Modal */}
+      <Dialog open={showProductModal} onOpenChange={setShowProductModal}>
+        <DialogContent className="sm:max-w-2xl">
+          {selectedProduct && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold">
+                  {selectedProduct.title[language as Lang]}
+                </DialogTitle>
+              </DialogHeader>
+              <div className="space-y-6">
+                {/* Product Image */}
+                <div className="relative overflow-hidden rounded-lg bg-gray-50">
+                  <img
+                    src={selectedProduct.image}
+                    alt={selectedProduct.title[language as Lang]}
+                    className="w-full h-96 object-contain p-6"
+                  />
+                </div>
+
+                {/* Product Details */}
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-500 mb-2">
+                      {language === "ar" ? "التصنيف" : "Category"}
+                    </h3>
+                    <span className="inline-block bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                      {getCategoryLabel(selectedProduct.categoryId)}
+                    </span>
+                  </div>
+
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-500 mb-2">
+                      {language === "ar" ? "اسم المنتج" : "Product Name"}
+                    </h3>
+                    <p className="text-lg font-medium text-gray-900">
+                      {selectedProduct.title[language as Lang]}
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-500 mb-2">
+                      {language === "ar" ? "الوصف" : "Description"}
+                    </h3>
+                    <p className="text-gray-700">
+                      {language === "ar"
+                        ? "منتج عالي الجودة من أحدث التقنيات في مجال الطاقة الشمسية والمعدات المتخصصة. للمزيد من المعلومات والأسعار، يرجى التواصل معنا عبر واتساب."
+                        : "High-quality product featuring the latest technology in solar energy and specialized equipment. For more information and pricing, please contact us via WhatsApp."}
+                    </p>
+                  </div>
+                </div>
+
+                {/* WhatsApp Contact Button */}
+                <Button
+                  onClick={handleWhatsAppContact}
+                  className="w-full bg-green-500 hover:bg-green-600 text-white py-6 text-lg font-semibold rounded-lg flex items-center justify-center gap-3"
+                >
+                  <MessageCircle className="w-6 h-6" />
+                  {language === "ar" ? "تواصل عبر واتساب" : "Contact via WhatsApp"}
+                </Button>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
 
       {/* Contact Modal */}
       <Dialog open={showContactModal} onOpenChange={setShowContactModal}>
