@@ -1,9 +1,10 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Home, Info, Wrench, Package, Image, Phone, Users } from "lucide-react";
+import { Menu, X, Home, Info, Wrench, Package, Image, Phone, Users, Settings } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAuth } from "@/contexts/AuthContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const Header = () => {
@@ -11,6 +12,7 @@ const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { t, isRTL } = useLanguage();
+  const { isAdmin } = useAuth();
 
   const scrollToSection = (sectionId: string) => {
     if (location.pathname !== '/') {
@@ -99,6 +101,18 @@ const Header = () => {
             </button>
             
             <LanguageSwitcher />
+            
+            {isAdmin && (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => navigate('/dashboard')}
+                className="gap-2"
+              >
+                <Settings className="w-4 h-4" />
+                <span>Dashboard</span>
+              </Button>
+            )}
           </nav>
 
           {/* Mobile menu button */}
