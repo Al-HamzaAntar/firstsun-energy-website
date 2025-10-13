@@ -200,7 +200,223 @@ const translations: Translations = {
 
   // Partners Section
   'partners.title': { ar: 'شركاء النجاح حول العالم', en: 'Global Success Partners' },
-  'partners.subtitle': { ar: 'نتعاون مع أفضل الشركات العالمية لنقدم لكم أجود المنتجات والحلول', en: 'We collaborate with the world\'s best companies to provide you with the finest products and solutions' }
+  'partners.subtitle': { ar: 'نتعاون مع أفضل الشركات العالمية لنقدم لكم أجود المنتجات والحلول', en: 'We collaborate with the world\'s best companies to provide you with the finest products and solutions' },
+  
+  // Auth Page
+  'auth.title': {
+    ar: 'دخول المشرف',
+    en: 'Admin Access'
+  },
+  'auth.description': {
+    ar: 'سجل الدخول لإدارة محتوى موقعك',
+    en: 'Sign in to manage your website content'
+  },
+  'auth.signin': {
+    ar: 'تسجيل الدخول',
+    en: 'Sign In'
+  },
+  'auth.signup': {
+    ar: 'إنشاء حساب',
+    en: 'Sign Up'
+  },
+  'auth.email': {
+    ar: 'البريد الإلكتروني',
+    en: 'Email'
+  },
+  'auth.password': {
+    ar: 'كلمة المرور',
+    en: 'Password'
+  },
+  'auth.signinButton': {
+    ar: 'تسجيل الدخول',
+    en: 'Sign In'
+  },
+  'auth.signupButton': {
+    ar: 'إنشاء حساب',
+    en: 'Create Account'
+  },
+  'auth.signinLoading': {
+    ar: 'جاري تسجيل الدخول...',
+    en: 'Signing in...'
+  },
+  'auth.signupLoading': {
+    ar: 'جاري إنشاء الحساب...',
+    en: 'Creating account...'
+  },
+  
+  // Dashboard Page
+  'dashboard.loading': {
+    ar: 'جاري التحميل...',
+    en: 'Loading...'
+  },
+  'dashboard.accessDenied': {
+    ar: 'تم رفض الوصول',
+    en: 'Access Denied'
+  },
+  'dashboard.accessDeniedDesc': {
+    ar: 'ليس لديك صلاحيات المشرف. يرجى الاتصال بالمسؤول.',
+    en: "You don't have admin permissions. Please contact the administrator."
+  },
+  'dashboard.signOut': {
+    ar: 'تسجيل الخروج',
+    en: 'Sign Out'
+  },
+  'dashboard.title': {
+    ar: 'لوحة تحكم المحتوى',
+    en: 'Content Dashboard'
+  },
+  'dashboard.subtitle': {
+    ar: 'إدارة محتوى موقعك',
+    en: 'Manage your website content'
+  },
+  'dashboard.overview': {
+    ar: 'نظرة عامة',
+    en: 'Overview'
+  },
+  'dashboard.translations': {
+    ar: 'الترجمات',
+    en: 'Translations'
+  },
+  'dashboard.gallery': {
+    ar: 'المعرض',
+    en: 'Gallery'
+  },
+  'dashboard.products': {
+    ar: 'المنتجات',
+    en: 'Products'
+  },
+  'dashboard.partners': {
+    ar: 'الشركاء',
+    en: 'Partners'
+  },
+  'dashboard.hero': {
+    ar: 'القسم الرئيسي',
+    en: 'Hero'
+  },
+  'dashboard.about': {
+    ar: 'من نحن',
+    en: 'About'
+  },
+  'dashboard.contact': {
+    ar: 'اتصل بنا',
+    en: 'Contact'
+  },
+  'dashboard.manage': {
+    ar: 'إدارة',
+    en: 'Manage'
+  },
+  'dashboard.arabicEnglishText': {
+    ar: 'النصوص العربية والإنجليزية',
+    en: 'Arabic & English text'
+  },
+  'dashboard.galleryItems': {
+    ar: 'عناصر المعرض',
+    en: 'Gallery items'
+  },
+  'dashboard.mainProducts': {
+    ar: 'المنتجات الرئيسية',
+    en: 'Main Products'
+  },
+  'dashboard.items': {
+    ar: 'عناصر',
+    en: 'Items'
+  },
+  'dashboard.featuredProducts': {
+    ar: 'المنتجات المميزة',
+    en: 'Featured products'
+  },
+  'dashboard.partnerLogos': {
+    ar: 'شعارات الشركاء',
+    en: 'Partner logos'
+  },
+  'dashboard.welcomeTitle': {
+    ar: 'مرحباً في لوحة التحكم',
+    en: 'Welcome to Your Dashboard'
+  },
+  'dashboard.welcomeDesc': {
+    ar: 'إدارة جميع محتوى موقعك من مكان واحد. يتم حفظ التغييرات فوراً في قاعدة البيانات.',
+    en: 'Manage all your website content from one place. Changes are saved instantly to the database.'
+  },
+  'dashboard.useTabsAbove': {
+    ar: 'استخدم علامات التبويب أعلاه للتنقل بين أقسام المحتوى المختلفة:',
+    en: 'Use the tabs above to navigate between different content sections:'
+  },
+  'dashboard.translationsDesc': {
+    ar: 'تحرير جميع النصوص بالعربية والإنجليزية',
+    en: 'Edit all text in Arabic and English'
+  },
+  'dashboard.galleryDesc': {
+    ar: 'إدارة منتجات المعرض مع الصور',
+    en: 'Manage gallery products with images'
+  },
+  'dashboard.productsDesc': {
+    ar: 'تحرير عناصر عرض المنتجات الرئيسية',
+    en: 'Edit main product showcase items'
+  },
+  'dashboard.partnersDesc': {
+    ar: 'إضافة/تحرير شعارات الشركاء',
+    en: 'Add/edit partner logos'
+  },
+  'dashboard.sectionsDesc': {
+    ar: 'تحديث أقسام الصفحة',
+    en: 'Update page sections'
+  },
+  'dashboard.translationsManager': {
+    ar: 'مدير الترجمات',
+    en: 'Translations Manager'
+  },
+  'dashboard.editTextContent': {
+    ar: 'تحرير محتوى النص بالعربية والإنجليزية',
+    en: 'Edit text content in Arabic and English'
+  },
+  'dashboard.galleryProducts': {
+    ar: 'منتجات المعرض',
+    en: 'Gallery Products'
+  },
+  'dashboard.manageGallery': {
+    ar: 'إدارة عناصر منتجات المعرض',
+    en: 'Manage gallery product items'
+  },
+  'dashboard.editFeatured': {
+    ar: 'تحرير المنتجات المميزة',
+    en: 'Edit featured products'
+  },
+  'dashboard.managePartners': {
+    ar: 'إدارة شعارات الشركاء',
+    en: 'Manage partner logos'
+  },
+  'dashboard.heroSection': {
+    ar: 'القسم الرئيسي',
+    en: 'Hero Section'
+  },
+  'dashboard.editHero': {
+    ar: 'تحرير محتوى القسم الرئيسي',
+    en: 'Edit homepage hero content'
+  },
+  'dashboard.aboutSection': {
+    ar: 'قسم من نحن',
+    en: 'About Section'
+  },
+  'dashboard.editAbout': {
+    ar: 'تحرير محتوى صفحة من نحن',
+    en: 'Edit about page content'
+  },
+  'dashboard.contactInfo': {
+    ar: 'معلومات الاتصال',
+    en: 'Contact Information'
+  },
+  'dashboard.editContact': {
+    ar: 'تحرير تفاصيل الاتصال',
+    en: 'Edit contact details'
+  },
+  'dashboard.comingSoon': {
+    ar: 'قريباً...',
+    en: 'coming soon...'
+  },
+  'dashboard.6Items': {
+    ar: '6 عناصر',
+    en: '6 Items'
+  }
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
