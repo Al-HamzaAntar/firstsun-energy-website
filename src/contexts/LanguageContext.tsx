@@ -175,8 +175,8 @@ const translations: Translations = {
   'products.inverters.description': { ar: 'عواكس ذكية بتقنيات متطورة لتحويل التيار المستمر إلى متردد بكفاءة عالية ومراقبة ذكية', en: 'Smart inverters with advanced technologies for converting DC to AC with high efficiency and intelligent monitoring' },
   
   'products.batteries.badge': { ar: 'طويل المدى', en: 'Long-lasting' },
-  'products.batteries.title': { ar: 'بطاريات الليثيوم المتطورة', en: 'Advanced Lithium Batteries' },
-  'products.batteries.description': { ar: 'بطاريات ليثيوم عالية السعة مع دورات شحن طويلة وأمان عالي لتخزين الطاقة الشمسية', en: 'High-capacity lithium batteries with long charge cycles and high safety for solar energy storage' },
+  'products.batteries.title': { ar: 'JNTech', en: 'JNTech' },
+  'products.batteries.description': { ar: 'حلول تقنية متطورة ومعدات عالية الجودة لأنظمة الطاقة الشمسية بأحدث التقنيات', en: 'Advanced technical solutions and high-quality equipment for solar energy systems with the latest technologies.' },
   
   'products.systems.badge': { ar: 'حل متكامل', en: 'Complete Solution' },
   'products.systems.title': { ar: 'الأنظمة المتكاملة خارج الشبكة', en: 'Complete Off-Grid Systems' },
