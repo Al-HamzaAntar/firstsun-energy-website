@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
-import { Loader2, Save } from 'lucide-react';
+import { Loader2, Save, Trash2 } from 'lucide-react';
 
 export const SiteContentManager = ({ section }: { section: string }) => {
   const queryClient = useQueryClient();
@@ -59,6 +59,22 @@ export const SiteContentManager = ({ section }: { section: string }) => {
     },
   });
 
+  const deleteMutation = useMutation({
+    mutationFn: async () => {
+      const { error } = await supabase
+        .from('site_content')
+        .delete()
+        .eq('section', section);
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['site_content', section] });
+      toast.success('Content deleted');
+      setContent('');
+    },
+    onError: () => toast.error('Failed to delete content'),
+  });
+
   if (isLoading) {
     return <div className="flex items-center justify-center p-8"><Loader2 className="w-8 h-8 animate-spin" /></div>;
   }
@@ -78,13 +94,25 @@ export const SiteContentManager = ({ section }: { section: string }) => {
             placeholder='{"key": "value"}'
           />
         </div>
-        <Button
-          onClick={() => updateMutation.mutate()}
-          disabled={updateMutation.isPending}
-        >
-          {updateMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Save className="w-4 h-4 mr-2" />}
-          Save Changes
-        </Button>
+        <div className="flex gap-2">
+          <Button
+            onClick={() => updateMutation.mutate()}
+            disabled={updateMutation.isPending}
+          >
+            {updateMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Save className="w-4 h-4 mr-2" />}
+            Save Changes
+          </Button>
+          {siteContent && (
+            <Button
+              onClick={() => deleteMutation.mutate()}
+              disabled={deleteMutation.isPending}
+              variant="destructive"
+            >
+              {deleteMutation.isPending ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Trash2 className="w-4 h-4 mr-2" />}
+              Delete
+            </Button>
+          )}
+        </div>
       </CardContent>
     </Card>
   );
