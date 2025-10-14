@@ -45,7 +45,7 @@ const Header = () => {
               alt={t('brand.name')} 
               className="h-10 w-auto"
             />
-            <span className="text-xl font-bold text-solar-blue">{t('brand.name')}</span>
+            {/* <span className="text-xl font-bold text-solar-blue">{t('brand.name')}</span> */}
           </Link>
 
           {/* Desktop Navigation */}

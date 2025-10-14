@@ -33,13 +33,13 @@ const Products = () => {
     {
       titleKey: "products.rjetech.title",
       descriptionKey: "products.rjetech.description",
-      image: "/lovable-uploads/398c6543-f93f-4c77-87f2-f7b496829112.png",
+      image: "/lovable-uploads/d7c59264-36cc-4866-b489-2f02ffd738b2.png",
       badgeKey: "products.rjetech.badge"
     },
     {
       titleKey: "products.danmi.title",
       descriptionKey: "products.danmi.description",
-      image: "/lovable-uploads/5156740a-47f9-40a0-ab6f-65a79e67963e.png",
+      image: "/lovable-uploads/a9b51979-1ea3-4125-853a-8748aa3f4680.png",
       badgeKey: "products.danmi.badge"
     }
   ];

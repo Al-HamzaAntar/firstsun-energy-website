@@ -39,7 +39,7 @@ const Footer = () => {
                 alt={t('brand.name')} 
                 className="h-8 w-auto"
               />
-              <span className="text-xl font-bold text-solar-yellow">{t('brand.name')}</span>
+              {/* <span className="text-xl font-bold text-solar-yellow">{t('brand.name')}</span> */}
             </div>
             <p className="text-gray-300 leading-relaxed">
               {t('footer.tagline')}
