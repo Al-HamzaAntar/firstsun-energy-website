@@ -49,7 +49,7 @@ const translations: Translations = {
     en: 'Advanced Solar Energy Systems Company specializes in providing integrated and innovative solar energy solutions. We work to provide high-quality and reliable solar energy systems for various residential, commercial, and industrial sectors.' 
   },
   // Brand
-  'brand.name': { ar: 'فرست سن إنرجي', en: 'First Sun Energy' },
+  // 'brand.name': { ar: 'فرست سن إنرجي', en: 'First Sun Energy' },
   
   // About - Detailed content
   'about.heading': { ar: 'عن شركة فرست سن إنرجي', en: 'About First Sun Energy' },
