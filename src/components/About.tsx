@@ -33,7 +33,7 @@ const About = () => {
           <div className="order-1 lg:order-2">
             <div className="relative">
               <img 
-                src="/lovable-uploads/5a318c08-a8f7-400a-b3e9-313118456e3a.png" 
+                src="/lovable-uploads/logo.svg"
                 alt={t('about.image.alt')} 
                 className="w-full h-96 object-cover rounded-2xl shadow-2xl"
               />

@@ -18,7 +18,7 @@ const LanguageSwitcher = () => {
     >
       <Globe className="w-4 h-4" />
       <span className="font-medium">
-        {language === 'ar' ? 'EN' : 'عر'}
+        {language === 'ar' ? 'EN' : 'عربي'}
       </span>
     </Button>
   );

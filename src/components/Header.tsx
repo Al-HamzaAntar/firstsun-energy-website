@@ -41,7 +41,7 @@ const Header = () => {
           {/* Logo - Clickable */}
           <Link to="/" className={`flex items-center gap-2 hover:opacity-80 transition-opacity ${isRTL ? 'flex-row-reverse' : ''}`}>
             <img 
-              src="/lovable-uploads/8094d4f9-52f3-414c-a63b-974f3d69d914.png" 
+              src="/lovable-uploads/logo.svg" 
               alt={t('brand.name')} 
               className="h-10 w-auto"
             />
