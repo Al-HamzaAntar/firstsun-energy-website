@@ -6,6 +6,11 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { LogOut, Settings, Globe, Image, Package, Users, Mail, Building2 } from 'lucide-react';
+import { TranslationsManager } from '@/components/dashboard/TranslationsManager';
+import { GalleryManager } from '@/components/dashboard/GalleryManager';
+import { ProductsManager } from '@/components/dashboard/ProductsManager';
+import { PartnersManager } from '@/components/dashboard/PartnersManager';
+import { SiteContentManager } from '@/components/dashboard/SiteContentManager';
 
 const Dashboard = () => {
   const { user, isAdmin, isLoading, signOut } = useAuth();
@@ -174,7 +179,7 @@ const Dashboard = () => {
                 <CardDescription>{t('dashboard.editTextContent')}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">{t('dashboard.translationsManager')} {t('dashboard.comingSoon')}</p>
+                <TranslationsManager />
               </CardContent>
             </Card>
           </TabsContent>
@@ -186,7 +191,7 @@ const Dashboard = () => {
                 <CardDescription>{t('dashboard.manageGallery')}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">{t('dashboard.gallery')} {t('dashboard.comingSoon')}</p>
+                <GalleryManager />
               </CardContent>
             </Card>
           </TabsContent>
@@ -198,7 +203,7 @@ const Dashboard = () => {
                 <CardDescription>{t('dashboard.editFeatured')}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">{t('dashboard.products')} {t('dashboard.comingSoon')}</p>
+                <ProductsManager />
               </CardContent>
             </Card>
           </TabsContent>
@@ -210,45 +215,21 @@ const Dashboard = () => {
                 <CardDescription>{t('dashboard.managePartners')}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">{t('dashboard.partners')} {t('dashboard.comingSoon')}</p>
+                <PartnersManager />
               </CardContent>
             </Card>
           </TabsContent>
 
           <TabsContent value="hero">
-            <Card>
-              <CardHeader>
-                <CardTitle>{t('dashboard.heroSection')}</CardTitle>
-                <CardDescription>{t('dashboard.editHero')}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{t('dashboard.hero')} {t('dashboard.comingSoon')}</p>
-              </CardContent>
-            </Card>
+            <SiteContentManager section="hero" />
           </TabsContent>
 
           <TabsContent value="about">
-            <Card>
-              <CardHeader>
-                <CardTitle>{t('dashboard.aboutSection')}</CardTitle>
-                <CardDescription>{t('dashboard.editAbout')}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{t('dashboard.about')} {t('dashboard.comingSoon')}</p>
-              </CardContent>
-            </Card>
+            <SiteContentManager section="about" />
           </TabsContent>
 
           <TabsContent value="contact">
-            <Card>
-              <CardHeader>
-                <CardTitle>{t('dashboard.contactInfo')}</CardTitle>
-                <CardDescription>{t('dashboard.editContact')}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{t('dashboard.contact')} {t('dashboard.comingSoon')}</p>
-              </CardContent>
-            </Card>
+            <SiteContentManager section="contact" />
           </TabsContent>
         </Tabs>
       </div>
