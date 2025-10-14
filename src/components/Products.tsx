@@ -15,7 +15,7 @@ const Products = () => {
     {
       titleKey: "products.batteries.title",
       descriptionKey: "products.batteries.description",
-      image: "/lovable-uploads/fc714e7b-0e8c-41b8-bb63-3754c52e39e8.png",
+      image: "/lovable-uploads/jntech.png",
       badgeKey: "products.batteries.badge"
     },
     {
