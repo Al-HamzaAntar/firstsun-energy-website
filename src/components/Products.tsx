@@ -13,10 +13,10 @@ const Products = () => {
       badgeKey: "products.panels.badge"
     },
     {
-      titleKey: "products.batteries.title",
-      descriptionKey: "products.batteries.description",
-      image: "/lovable-uploads/jntech.png",
-      badgeKey: "products.batteries.badge"
+      titleKey: "products.danmi.title",
+      descriptionKey: "products.danmi.description",
+      image: "/lovable-uploads/a9b51979-1ea3-4125-853a-8748aa3f4680.png",
+      badgeKey: "products.danmi.badge"
     },
     {
       titleKey: "products.inverters.title",
@@ -37,10 +37,10 @@ const Products = () => {
       badgeKey: "products.rjetech.badge"
     },
     {
-      titleKey: "products.danmi.title",
-      descriptionKey: "products.danmi.description",
-      image: "/lovable-uploads/a9b51979-1ea3-4125-853a-8748aa3f4680.png",
-      badgeKey: "products.danmi.badge"
+      titleKey: "products.batteries.title",
+      descriptionKey: "products.batteries.description",
+      image: "/lovable-uploads/jntech.png",
+      badgeKey: "products.batteries.badge"
     }
   ];
 
