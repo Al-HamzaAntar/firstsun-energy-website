@@ -23,6 +23,10 @@ const Partners = () => {
     {
       name: "DANMI",
       logo: "/lovable-uploads/a9b51979-1ea3-4125-853a-8748aa3f4680.png"
+    },
+    {
+      name: "JNTech",
+      logo: "/lovable-uploads/jntech.png"
     }
   ];
 
