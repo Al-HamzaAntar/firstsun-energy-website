@@ -176,7 +176,7 @@ const translations: Translations = {
   
   'products.batteries.badge': { ar: 'طويل المدى', en: 'Long-lasting' },
   'products.batteries.title': { ar: 'JNTech', en: 'JNTech' },
-  'products.batteries.description': { ar: 'حلول تقنية متطورة ومعدات عالية الجودة لأنظمة الطاقة الشمسية بأحدث التقنيات', en: 'Advanced technical solutions and high-quality equipment for solar energy systems with the latest technologies.' },
+  'products.batteries.description': { ar: 'نقدم أحدث التقنيات الشمسية وحلول الطاقة المبتكرة، مدعومة بمعدات عالية الجودة ومواصفات متطورة.', en: 'We offer the latest solar technologies and innovative energy solutions, backed by high-quality equipment and advanced specifications.' },
   
   'products.systems.badge': { ar: 'حل متكامل', en: 'Complete Solution' },
   'products.systems.title': { ar: 'الأنظمة المتكاملة خارج الشبكة', en: 'Complete Off-Grid Systems' },
