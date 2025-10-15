@@ -10,7 +10,7 @@ const Partners = () => {
     },
     {
       name: "RJETech",
-      logo: "/lovable-uploads/d7c59264-36cc-4866-b489-2f02ffd738b2.png"
+      // logo: "/lovable-uploads/d7c59264-36cc-4866-b489-2f02ffd738b2.png"
     },
     {
       name: "SINENG Electric",
