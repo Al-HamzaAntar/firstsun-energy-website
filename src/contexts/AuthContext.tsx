@@ -58,12 +58,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   const checkAdminStatus = async (userId: string) => {
+    // Use the secure has_role database function instead of querying user_roles directly
+    // This prevents potential enumeration attacks on the user_roles table
     const { data, error } = await supabase
-      .from('user_roles')
-      .select('role')
-      .eq('user_id', userId)
-      .eq('role', 'admin')
-      .maybeSingle();
+      .rpc('has_role', {
+        _user_id: userId,
+        _role: 'admin'
+      });
     
     setIsAdmin(!!data && !error);
   };
