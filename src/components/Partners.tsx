@@ -17,16 +17,16 @@ const Partners = () => {
       logo: "/lovable-uploads/d31f99a3-4676-428f-9a5e-d3874fc40f1f.png"
     },
     {
+      name: "JNTech",
+      logo: "/lovable-uploads/jntech.png"
+    },
+    {
       name: "Hexcell",
       logo: "/lovable-uploads/92f5f58d-99b6-47a1-9a0c-e8091c57d698.png"
     },
     {
       name: "DANMI",
       logo: "/lovable-uploads/a9b51979-1ea3-4125-853a-8748aa3f4680.png"
-    },
-    {
-      name: "JNTech",
-      logo: "/lovable-uploads/jntech.png"
     }
   ];
 
