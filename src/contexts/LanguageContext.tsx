@@ -143,8 +143,8 @@ const translations: Translations = {
   'contact.maintenance': { ar: 'الصيانة', en: 'Maintenance' },
   'contact.purchases': { ar: 'المشتريات', en: 'Purchases' },
   'contact.sales': { ar: 'المبيعات', en: 'Sales' },
-  'contact.street': { ar: 'شارع الأربعين، بيت بوس، صنعاء', en: 'Al-Arbaeen Street, Sana\'a' },
-  'contact.cityCountry': { ar: 'صنعاء، اليمن', en: 'Sana\'a, Yemen' },
+  'contact.street': { ar: 'شارع الأربعين - جولة الثقافة، مقابل مفروشات المدينة التركية', en: 'Al-Arbaeen Street - Culture Roundabout, opposite Turkish City Furniture' },
+  'contact.cityCountry': { ar: 'الجمهورية اليمنية، صنعاء', en: 'Republic of Yemen, Sana\'a' },
 
   // Footer
   'footer.company': { ar: 'شركة النظم المتطورة للطاقة الشمسية', en: 'Advanced Solar Energy Systems Company' },
