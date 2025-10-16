@@ -28,8 +28,8 @@ const translations: Translations = {
 
   // Hero Section
   'hero.title': { 
-    ar: 'شركة متخصصة في تقديم حلول متكاملة للطاقة الشمسية، تهدف إلى توفير الطاقة النظيفة والمستدامة', 
-    en: 'A company specialized in providing integrated solar energy solutions, aiming to deliver clean and sustainable energy' 
+    ar: 'تقديم حلول متكاملة للطاقة الشمسية، تهدف إلى توفير الطاقة النظيفة والمستدامة', 
+    en: 'Providing integrated solar energy solutions, aiming to provide clean and sustainable energy.' 
   },
   'hero.subtitle': { 
     ar: 'نحن متخصصون في تقديم حلول الطاقة الشمسية المتكاملة والمبتكرة لجميع القطاعات', 
