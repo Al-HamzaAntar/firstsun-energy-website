@@ -49,30 +49,39 @@ export type Database = {
       }
       main_products: {
         Row: {
-          badge_key: string
-          description_key: string
+          badge_ar: string | null
+          badge_en: string | null
+          description_ar: string
+          description_en: string
           display_order: number | null
           id: string
           image_url: string
-          title_key: string
+          name_ar: string
+          name_en: string
           updated_at: string | null
         }
         Insert: {
-          badge_key: string
-          description_key: string
+          badge_ar?: string | null
+          badge_en?: string | null
+          description_ar?: string
+          description_en?: string
           display_order?: number | null
           id?: string
           image_url: string
-          title_key: string
+          name_ar?: string
+          name_en?: string
           updated_at?: string | null
         }
         Update: {
-          badge_key?: string
-          description_key?: string
+          badge_ar?: string | null
+          badge_en?: string | null
+          description_ar?: string
+          description_en?: string
           display_order?: number | null
           id?: string
           image_url?: string
-          title_key?: string
+          name_ar?: string
+          name_en?: string
           updated_at?: string | null
         }
         Relationships: []

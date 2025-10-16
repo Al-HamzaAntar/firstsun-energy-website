@@ -105,9 +105,9 @@ export const ProductsManager = () => {
                 <>
                   <img src={product.image_url} alt="" className="w-full h-48 object-cover rounded" />
                   <div className="space-y-2">
-                    <p><strong>Title Key:</strong> {product.title_key}</p>
-                    <p><strong>Description Key:</strong> {product.description_key}</p>
-                    <p><strong>Badge Key:</strong> {product.badge_key}</p>
+                    <p><strong>EN:</strong> {product.name_en}</p>
+                    <p><strong>AR:</strong> {product.name_ar}</p>
+                    {product.badge_en && <p><strong>Badge:</strong> {product.badge_en} / {product.badge_ar}</p>}
                     <p><strong>Order:</strong> {product.display_order}</p>
                   </div>
                   <div className="flex gap-2">
@@ -127,9 +127,12 @@ export const ProductsManager = () => {
 };
 
 const ProductForm = ({ product, onSave, onCancel, isPending }: any) => {
-  const [titleKey, setTitleKey] = useState(product?.title_key || '');
-  const [descKey, setDescKey] = useState(product?.description_key || '');
-  const [badgeKey, setBadgeKey] = useState(product?.badge_key || '');
+  const [nameEn, setNameEn] = useState(product?.name_en || '');
+  const [nameAr, setNameAr] = useState(product?.name_ar || '');
+  const [descEn, setDescEn] = useState(product?.description_en || '');
+  const [descAr, setDescAr] = useState(product?.description_ar || '');
+  const [badgeEn, setBadgeEn] = useState(product?.badge_en || '');
+  const [badgeAr, setBadgeAr] = useState(product?.badge_ar || '');
   const [imageUrl, setImageUrl] = useState(product?.image_url || '');
   const [order, setOrder] = useState(product?.display_order || 0);
 
@@ -137,19 +140,37 @@ const ProductForm = ({ product, onSave, onCancel, isPending }: any) => {
     <div className="space-y-4">
       <div className="space-y-2">
         <Label>Image URL</Label>
-        <Input value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
+        <Input value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} placeholder="https://example.com/image.jpg" />
       </div>
-      <div className="space-y-2">
-        <Label>Title Key</Label>
-        <Input value={titleKey} onChange={(e) => setTitleKey(e.target.value)} />
+      <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <Label>Name (English)</Label>
+          <Input value={nameEn} onChange={(e) => setNameEn(e.target.value)} placeholder="Product name in English" />
+        </div>
+        <div className="space-y-2">
+          <Label>Name (Arabic)</Label>
+          <Input value={nameAr} onChange={(e) => setNameAr(e.target.value)} placeholder="اسم المنتج بالعربية" dir="rtl" />
+        </div>
       </div>
-      <div className="space-y-2">
-        <Label>Description Key</Label>
-        <Input value={descKey} onChange={(e) => setDescKey(e.target.value)} />
+      <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <Label>Description (English)</Label>
+          <Input value={descEn} onChange={(e) => setDescEn(e.target.value)} placeholder="Description in English" />
+        </div>
+        <div className="space-y-2">
+          <Label>Description (Arabic)</Label>
+          <Input value={descAr} onChange={(e) => setDescAr(e.target.value)} placeholder="الوصف بالعربية" dir="rtl" />
+        </div>
       </div>
-      <div className="space-y-2">
-        <Label>Badge Key</Label>
-        <Input value={badgeKey} onChange={(e) => setBadgeKey(e.target.value)} />
+      <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <Label>Badge (English) - Optional</Label>
+          <Input value={badgeEn} onChange={(e) => setBadgeEn(e.target.value)} placeholder="Badge text" />
+        </div>
+        <div className="space-y-2">
+          <Label>Badge (Arabic) - Optional</Label>
+          <Input value={badgeAr} onChange={(e) => setBadgeAr(e.target.value)} placeholder="نص الشارة" dir="rtl" />
+        </div>
       </div>
       <div className="space-y-2">
         <Label>Display Order</Label>
@@ -157,7 +178,16 @@ const ProductForm = ({ product, onSave, onCancel, isPending }: any) => {
       </div>
       <div className="flex gap-2">
         <Button
-          onClick={() => onSave({ title_key: titleKey, description_key: descKey, badge_key: badgeKey, image_url: imageUrl, display_order: order })}
+          onClick={() => onSave({ 
+            name_en: nameEn, 
+            name_ar: nameAr, 
+            description_en: descEn, 
+            description_ar: descAr, 
+            badge_en: badgeEn || null,
+            badge_ar: badgeAr || null,
+            image_url: imageUrl, 
+            display_order: order 
+          })}
           disabled={isPending}
           size="sm"
         >

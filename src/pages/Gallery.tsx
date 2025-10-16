@@ -25,6 +25,8 @@ type Category = {
 type GalleryItem = {
   id: string;
   title: string;
+  description?: string;
+  badge?: string | null;
   categoryId: string;
   image: string;
 };
@@ -115,11 +117,13 @@ const Gallery = () => {
     if (!products) return [];
     return products.map((product) => ({
       id: product.id,
-      title: product.title_key,
-      categoryId: "all", // You can add category logic later if needed
+      title: language === 'ar' ? product.name_ar : product.name_en,
+      description: language === 'ar' ? product.description_ar : product.description_en,
+      badge: language === 'ar' ? product.badge_ar : product.badge_en,
+      categoryId: "all",
       image: product.image_url,
     }));
-  }, [products]);
+  }, [products, language]);
 
   const getCategoryLabel = (id: string) =>
     (categories.find((c) => c.id === id)?.label[language as Lang]) || id;
@@ -129,7 +133,7 @@ const Gallery = () => {
     
     if (searchQuery.trim()) {
       filtered = filtered.filter((item) =>
-        t(item.title).toLowerCase().includes(searchQuery.toLowerCase())
+        item.title.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
     
@@ -149,7 +153,7 @@ const Gallery = () => {
 
   const tryWhatsAppConnection = async (item: GalleryItem) => {
     setIsConnecting(true);
-    const title = t(item.title);
+    const title = item.title;
     const message = language === "ar" 
       ? `مرحباً، أرغب في الاستفسار عن المنتج: ${title}`
       : `Hello, I would like to inquire about the product: ${title}`;
@@ -218,7 +222,7 @@ const Gallery = () => {
   const handleManualContact = () => {
     if (!selectedProduct) return;
     
-    const title = t(selectedProduct.title);
+    const title = selectedProduct.title;
     const message = language === "ar" 
       ? `مرحباً، أرغب في الاستفسار عن المنتج: ${title}`
       : `Hello, I would like to inquire about the product: ${title}`;
@@ -239,8 +243,8 @@ const Gallery = () => {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {list.map((item) => {
-          const title = t(item.title);
-          const chip = getCategoryLabel(item.categoryId);
+          const title = item.title;
+          const chip = item.badge || getCategoryLabel(item.categoryId);
           return (
             <Card
               key={item.id}
@@ -380,7 +384,7 @@ const Gallery = () => {
             <>
               <DialogHeader>
                 <DialogTitle className="text-xl font-bold">
-                  {t(selectedProduct.title)}
+                  {selectedProduct.title}
                 </DialogTitle>
               </DialogHeader>
               <div className="space-y-4">
@@ -388,7 +392,7 @@ const Gallery = () => {
                 <div className="relative overflow-hidden rounded-lg bg-gray-50">
                   <img
                     src={selectedProduct.image}
-                    alt={t(selectedProduct.title)}
+                    alt={selectedProduct.title}
                     className="w-full h-48 object-contain p-4"
                   />
                 </div>
@@ -409,20 +413,20 @@ const Gallery = () => {
                       {language === "ar" ? "اسم المنتج" : "Product Name"}
                     </h3>
                     <p className="text-base font-medium text-gray-900">
-                      {t(selectedProduct.title)}
+                      {selectedProduct.title}
                     </p>
                   </div>
 
-                  <div>
-                    <h3 className="text-xs font-semibold text-gray-500 mb-1">
-                      {language === "ar" ? "الوصف" : "Description"}
-                    </h3>
-                    <p className="text-sm text-gray-700">
-                      {language === "ar"
-                        ? "منتج عالي الجودة من أحدث التقنيات في مجال الطاقة الشمسية والمعدات المتخصصة. للمزيد من المعلومات والأسعار، يرجى التواصل معنا عبر واتساب."
-                        : "High-quality product featuring the latest technology in solar energy and specialized equipment. For more information and pricing, please contact us via WhatsApp."}
-                    </p>
-                  </div>
+                  {selectedProduct.description && (
+                    <div>
+                      <h3 className="text-xs font-semibold text-gray-500 mb-1">
+                        {language === "ar" ? "الوصف" : "Description"}
+                      </h3>
+                      <p className="text-sm text-gray-700">
+                        {selectedProduct.description}
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 {/* WhatsApp Contact Button */}
