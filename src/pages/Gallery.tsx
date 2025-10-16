@@ -14,6 +14,20 @@ import { useToast } from "@/hooks/use-toast";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 
+const CATEGORIES = [
+  { en: 'All Products', ar: 'جميع المنتجات' },
+  { en: 'Inverters', ar: 'العاكسات' },
+  { en: 'Solar Panels', ar: 'الألواح الشمسية' },
+  { en: 'Accessories', ar: 'الإكسسوارات' },
+  { en: 'Installation Tools', ar: 'أدوات التركيب' },
+  { en: 'Measurement Tools', ar: 'أدوات القياس' },
+  { en: 'Security Systems', ar: 'أنظمة الأمان' },
+  { en: 'Storage Systems', ar: 'أنظمة التخزين' },
+  { en: 'Control Systems', ar: 'أنظمة التحكم' },
+  { en: 'Water Pumps', ar: 'مضخات المياه' },
+  { en: 'Safety Equipment', ar: 'معدات السلامة' },
+];
+
 // Types
 type Lang = "ar" | "en";
 
@@ -27,6 +41,7 @@ type GalleryItem = {
   title: string;
   description?: string;
   badge?: string | null;
+  badgeEn?: string | null;
   categoryId: string;
   image: string;
 };
@@ -49,25 +64,12 @@ const useGridColumns = () => {
   return cols;
 };
 
-const categories: Category[] = [
-  { id: "all", label: { ar: "جميع المنتجات", en: "All Products" } },
-  { id: "inverters", label: { ar: "عواكس", en: "Inverters" } },
-  { id: "solar-panels", label: { ar: "ألواح شمسية", en: "Solar Panels" } },
-  { id: "accessories", label: { ar: "معدات إضافية", en: "Accessories" } },
-  { id: "install-tools", label: { ar: "أدوات التركيب", en: "Installation Tools" } },
-  { id: "measurement-tools", label: { ar: "أدوات القياس", en: "Measurement Tools" } },
-  { id: "security-systems", label: { ar: "أنظمة الأمان", en: "Security Systems" } },
-  { id: "storage-systems", label: { ar: "أنظمة التخزين", en: "Storage Systems" } },
-  { id: "control-systems", label: { ar: "أنظمة التحكم", en: "Control Systems" } },
-  { id: "water-pumps", label: { ar: "مضخات المياه", en: "Water Pumps" } },
-  { id: "safety-equipment", label: { ar: "معدات الأمان", en: "Safety Equipment" } },
-];
 
 
 const Gallery = () => {
   const { language, isRTL, t } = useLanguage();
   const { toast } = useToast();
-  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [activeCategory, setActiveCategory] = useState<string>("All Products");
   const [showAll, setShowAll] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<GalleryItem | null>(null);
@@ -120,16 +122,16 @@ const Gallery = () => {
       title: language === 'ar' ? product.name_ar : product.name_en,
       description: language === 'ar' ? product.description_ar : product.description_en,
       badge: language === 'ar' ? product.badge_ar : product.badge_en,
+      badgeEn: product.badge_en,
       categoryId: "all",
       image: product.image_url,
     }));
   }, [products, language]);
 
-  const getCategoryLabel = (id: string) =>
-    (categories.find((c) => c.id === id)?.label[language as Lang]) || id;
-
-  const filteredItems = (categoryId: string) => {
-    let filtered = categoryId === "all" ? items : items.filter((it) => it.categoryId === categoryId);
+  const filteredItems = (categoryEn: string) => {
+    let filtered = categoryEn === "All Products" 
+      ? items 
+      : items.filter((it) => it.badgeEn === categoryEn);
     
     if (searchQuery.trim()) {
       filtered = filtered.filter((item) =>
@@ -244,7 +246,7 @@ const Gallery = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {list.map((item) => {
           const title = item.title;
-          const chip = item.badge || getCategoryLabel(item.categoryId);
+          const chip = item.badge;
           return (
             <Card
               key={item.id}
@@ -258,17 +260,19 @@ const Gallery = () => {
                   className="w-full h-64 object-contain bg-gray-50 p-4 group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className={`absolute top-4 ${isRTL ? "left-4" : "right-4"}`}>
-                  <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    {chip}
-                  </span>
-                </div>
+                {chip && (
+                  <div className={`absolute top-4 ${isRTL ? "left-4" : "right-4"}`}>
+                    <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                      {chip}
+                    </span>
+                  </div>
+                )}
               </div>
               <CardContent className="p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                   {title}
                 </h3>
-                <p className="text-gray-600 text-sm">{chip}</p>
+                {chip && <p className="text-gray-600 text-sm">{chip}</p>}
                 <div className="mt-3 text-green-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {language === "ar" ? "اضغط للتواصل عبر الواتساب" : "Click to contact via WhatsApp"}
                 </div>
@@ -338,23 +342,23 @@ const Gallery = () => {
           <Tabs value={activeCategory} onValueChange={(v) => setActiveCategory(v)} className="w-full">
             {/* Desktop Tabs */}
             <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-11 mb-8 h-auto p-1 bg-white shadow-lg rounded-xl gap-1">
-              {categories.map((category) => (
+              {CATEGORIES.map((category) => (
                 <TabsTrigger
-                  key={category.id}
-                  value={category.id}
+                  key={category.en}
+                  value={category.en}
                   className="text-sm font-medium px-3 py-2 rounded-lg data-[state=active]:bg-blue-500 data-[state=active]:text-white transition-all duration-300"
                 >
-                  {category.label[language as Lang]}
+                  {language === 'ar' ? category.ar : category.en}
                 </TabsTrigger>
               ))}
             </TabsList>
 
-            {categories.map((category) => {
-              const list = filteredItems(category.id);
-              const isActive = category.id === activeCategory;
+            {CATEGORIES.map((category) => {
+              const list = filteredItems(category.en);
+              const isActive = category.en === activeCategory;
               const itemsToRender = isActive ? (showAll ? list : list.slice(0, initialVisible)) : list;
               return (
-                <TabsContent key={category.id} value={category.id} className="mt-8">
+                <TabsContent key={category.en} value={category.en} className="mt-8">
                   {renderProductGrid(itemsToRender)}
                 </TabsContent>
               );
@@ -399,14 +403,16 @@ const Gallery = () => {
 
                 {/* Product Details */}
                 <div className="space-y-3">
-                  <div>
-                    <h3 className="text-xs font-semibold text-gray-500 mb-1">
-                      {language === "ar" ? "التصنيف" : "Category"}
-                    </h3>
-                    <span className="inline-block bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                      {getCategoryLabel(selectedProduct.categoryId)}
-                    </span>
-                  </div>
+                  {selectedProduct.badge && (
+                    <div>
+                      <h3 className="text-xs font-semibold text-gray-500 mb-1">
+                        {language === "ar" ? "التصنيف" : "Category"}
+                      </h3>
+                      <span className="inline-block bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                        {selectedProduct.badge}
+                      </span>
+                    </div>
+                  )}
 
                   <div>
                     <h3 className="text-xs font-semibold text-gray-500 mb-1">

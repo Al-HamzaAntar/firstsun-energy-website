@@ -5,8 +5,22 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent } from '@/components/ui/card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
 import { Loader2, Plus, Save, Trash2 } from 'lucide-react';
+
+const CATEGORIES = [
+  { en: 'Inverters', ar: 'العاكسات' },
+  { en: 'Solar Panels', ar: 'الألواح الشمسية' },
+  { en: 'Accessories', ar: 'الإكسسوارات' },
+  { en: 'Installation Tools', ar: 'أدوات التركيب' },
+  { en: 'Measurement Tools', ar: 'أدوات القياس' },
+  { en: 'Security Systems', ar: 'أنظمة الأمان' },
+  { en: 'Storage Systems', ar: 'أنظمة التخزين' },
+  { en: 'Control Systems', ar: 'أنظمة التحكم' },
+  { en: 'Water Pumps', ar: 'مضخات المياه' },
+  { en: 'Safety Equipment', ar: 'معدات السلامة' },
+];
 
 export const ProductsManager = () => {
   const queryClient = useQueryClient();
@@ -162,15 +176,27 @@ const ProductForm = ({ product, onSave, onCancel, isPending }: any) => {
           <Input value={descAr} onChange={(e) => setDescAr(e.target.value)} placeholder="الوصف بالعربية" dir="rtl" />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-4">
-        <div className="space-y-2">
-          <Label>Badge (English) - Optional</Label>
-          <Input value={badgeEn} onChange={(e) => setBadgeEn(e.target.value)} placeholder="Badge text" />
-        </div>
-        <div className="space-y-2">
-          <Label>Badge (Arabic) - Optional</Label>
-          <Input value={badgeAr} onChange={(e) => setBadgeAr(e.target.value)} placeholder="نص الشارة" dir="rtl" />
-        </div>
+      <div className="space-y-2">
+        <Label>Category</Label>
+        <Select 
+          value={badgeEn} 
+          onValueChange={(value) => {
+            setBadgeEn(value);
+            const category = CATEGORIES.find(c => c.en === value);
+            if (category) setBadgeAr(category.ar);
+          }}
+        >
+          <SelectTrigger>
+            <SelectValue placeholder="Select a category" />
+          </SelectTrigger>
+          <SelectContent>
+            {CATEGORIES.map((category) => (
+              <SelectItem key={category.en} value={category.en}>
+                {category.en}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
       <div className="space-y-2">
         <Label>Display Order</Label>
