@@ -8,6 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
 import { Loader2, Plus, Save, Trash2 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const CATEGORIES = [
   { en: 'Inverters', ar: 'العاكسات' },
@@ -23,6 +24,7 @@ const CATEGORIES = [
 ];
 
 export const ProductsManager = () => {
+  const { t } = useLanguage();
   const queryClient = useQueryClient();
   const [editingId, setEditingId] = useState<string | null>(null);
   const [showNew, setShowNew] = useState(false);
@@ -93,7 +95,7 @@ export const ProductsManager = () => {
     <div className="space-y-6">
       <Button onClick={() => setShowNew(true)} disabled={showNew}>
         <Plus className="w-4 h-4 mr-2" />
-        Add Main Product
+        {t('productsManager.addProduct')}
       </Button>
 
       {showNew && (
@@ -121,11 +123,11 @@ export const ProductsManager = () => {
                   <div className="space-y-2">
                     <p><strong>EN:</strong> {product.name_en}</p>
                     <p><strong>AR:</strong> {product.name_ar}</p>
-                    {product.badge_en && <p><strong>Badge:</strong> {product.badge_en} / {product.badge_ar}</p>}
-                    <p><strong>Order:</strong> {product.display_order}</p>
+                    {product.badge_en && <p><strong>{t('productsManager.badge')}:</strong> {product.badge_en} / {product.badge_ar}</p>}
+                    <p><strong>{t('productsManager.order')}:</strong> {product.display_order}</p>
                   </div>
                   <div className="flex gap-2">
-                    <Button onClick={() => setEditingId(product.id)} variant="outline" size="sm">Edit</Button>
+                    <Button onClick={() => setEditingId(product.id)} variant="outline" size="sm">{t('productsManager.edit')}</Button>
                     <Button onClick={() => deleteMutation.mutate(product.id)} variant="destructive" size="sm">
                       <Trash2 className="w-4 h-4" />
                     </Button>
@@ -141,6 +143,7 @@ export const ProductsManager = () => {
 };
 
 const ProductForm = ({ product, onSave, onCancel, isPending }: any) => {
+  const { t } = useLanguage();
   const [nameEn, setNameEn] = useState(product?.name_en || '');
   const [nameAr, setNameAr] = useState(product?.name_ar || '');
   const [descEn, setDescEn] = useState(product?.description_en || '');
@@ -153,31 +156,31 @@ const ProductForm = ({ product, onSave, onCancel, isPending }: any) => {
   return (
     <div className="space-y-4">
       <div className="space-y-2">
-        <Label>Image URL</Label>
-        <Input value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} placeholder="https://example.com/image.jpg" />
+        <Label>{t('productsManager.imageUrl')}</Label>
+        <Input value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} placeholder={t('productsManager.imageUrlPlaceholder')} />
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label>Name (English)</Label>
-          <Input value={nameEn} onChange={(e) => setNameEn(e.target.value)} placeholder="Product name in English" />
+          <Label>{t('productsManager.nameEn')}</Label>
+          <Input value={nameEn} onChange={(e) => setNameEn(e.target.value)} placeholder={t('productsManager.nameEnPlaceholder')} />
         </div>
         <div className="space-y-2">
-          <Label>Name (Arabic)</Label>
-          <Input value={nameAr} onChange={(e) => setNameAr(e.target.value)} placeholder="اسم المنتج بالعربية" dir="rtl" />
+          <Label>{t('productsManager.nameAr')}</Label>
+          <Input value={nameAr} onChange={(e) => setNameAr(e.target.value)} placeholder={t('productsManager.nameArPlaceholder')} dir="rtl" />
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label>Description (English)</Label>
-          <Input value={descEn} onChange={(e) => setDescEn(e.target.value)} placeholder="Description in English" />
+          <Label>{t('productsManager.descEn')}</Label>
+          <Input value={descEn} onChange={(e) => setDescEn(e.target.value)} placeholder={t('productsManager.descEnPlaceholder')} />
         </div>
         <div className="space-y-2">
-          <Label>Description (Arabic)</Label>
-          <Input value={descAr} onChange={(e) => setDescAr(e.target.value)} placeholder="الوصف بالعربية" dir="rtl" />
+          <Label>{t('productsManager.descAr')}</Label>
+          <Input value={descAr} onChange={(e) => setDescAr(e.target.value)} placeholder={t('productsManager.descArPlaceholder')} dir="rtl" />
         </div>
       </div>
       <div className="space-y-2">
-        <Label>Category</Label>
+        <Label>{t('productsManager.category')}</Label>
         <Select 
           value={badgeEn} 
           onValueChange={(value) => {
@@ -187,7 +190,7 @@ const ProductForm = ({ product, onSave, onCancel, isPending }: any) => {
           }}
         >
           <SelectTrigger>
-            <SelectValue placeholder="Select a category" />
+            <SelectValue placeholder={t('productsManager.selectCategory')} />
           </SelectTrigger>
           <SelectContent>
             {CATEGORIES.map((category) => (
@@ -199,7 +202,7 @@ const ProductForm = ({ product, onSave, onCancel, isPending }: any) => {
         </Select>
       </div>
       <div className="space-y-2">
-        <Label>Display Order</Label>
+        <Label>{t('productsManager.displayOrder')}</Label>
         <Input type="number" value={order} onChange={(e) => setOrder(Number(e.target.value))} />
       </div>
       <div className="flex gap-2">
@@ -218,9 +221,9 @@ const ProductForm = ({ product, onSave, onCancel, isPending }: any) => {
           size="sm"
         >
           {isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-          Save
+          {t('productsManager.save')}
         </Button>
-        <Button onClick={onCancel} variant="outline" size="sm">Cancel</Button>
+        <Button onClick={onCancel} variant="outline" size="sm">{t('productsManager.cancel')}</Button>
       </div>
     </div>
   );

@@ -297,6 +297,106 @@ const translations: Translations = {
     ar: 'من نحن',
     en: 'About'
   },
+  
+  // Products Manager
+  'productsManager.addProduct': {
+    ar: 'إضافة منتج رئيسي',
+    en: 'Add Main Product'
+  },
+  'productsManager.imageUrl': {
+    ar: 'رابط الصورة',
+    en: 'Image URL'
+  },
+  'productsManager.imageUrlPlaceholder': {
+    ar: 'https://example.com/image.jpg',
+    en: 'https://example.com/image.jpg'
+  },
+  'productsManager.nameEn': {
+    ar: 'الاسم (إنجليزي)',
+    en: 'Name (English)'
+  },
+  'productsManager.nameEnPlaceholder': {
+    ar: 'Product name in English',
+    en: 'Product name in English'
+  },
+  'productsManager.nameAr': {
+    ar: 'الاسم (عربي)',
+    en: 'Name (Arabic)'
+  },
+  'productsManager.nameArPlaceholder': {
+    ar: 'اسم المنتج بالعربية',
+    en: 'اسم المنتج بالعربية'
+  },
+  'productsManager.descEn': {
+    ar: 'الوصف (إنجليزي)',
+    en: 'Description (English)'
+  },
+  'productsManager.descEnPlaceholder': {
+    ar: 'Description in English',
+    en: 'Description in English'
+  },
+  'productsManager.descAr': {
+    ar: 'الوصف (عربي)',
+    en: 'Description (Arabic)'
+  },
+  'productsManager.descArPlaceholder': {
+    ar: 'الوصف بالعربية',
+    en: 'الوصف بالعربية'
+  },
+  'productsManager.category': {
+    ar: 'الفئة',
+    en: 'Category'
+  },
+  'productsManager.selectCategory': {
+    ar: 'اختر فئة',
+    en: 'Select a category'
+  },
+  'productsManager.displayOrder': {
+    ar: 'ترتيب العرض',
+    en: 'Display Order'
+  },
+  'productsManager.save': {
+    ar: 'حفظ',
+    en: 'Save'
+  },
+  'productsManager.cancel': {
+    ar: 'إلغاء',
+    en: 'Cancel'
+  },
+  'productsManager.edit': {
+    ar: 'تعديل',
+    en: 'Edit'
+  },
+  'productsManager.delete': {
+    ar: 'حذف',
+    en: 'Delete'
+  },
+  'productsManager.badge': {
+    ar: 'الشارة',
+    en: 'Badge'
+  },
+  'productsManager.order': {
+    ar: 'الترتيب',
+    en: 'Order'
+  },
+  
+  // Overview
+  'overview.totalProducts': {
+    ar: 'إجمالي المنتجات',
+    en: 'Total Products'
+  },
+  'overview.productsInDatabase': {
+    ar: 'المنتجات في قاعدة البيانات',
+    en: 'Products in Database'
+  },
+  'overview.recentChanges': {
+    ar: 'التغييرات الأخيرة',
+    en: 'Recent Changes'
+  },
+  'overview.dashboardActivity': {
+    ar: 'نشاط لوحة التحكم',
+    en: 'Dashboard Activity'
+  },
   'dashboard.contact': {
     ar: 'اتصل بنا',
     en: 'Contact'

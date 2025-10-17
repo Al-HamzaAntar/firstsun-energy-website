@@ -156,9 +156,10 @@ const Gallery = () => {
   const tryWhatsAppConnection = async (item: GalleryItem) => {
     setIsConnecting(true);
     const title = item.title;
+    const imageUrl = item.image;
     const message = language === "ar" 
-      ? `مرحباً، أرغب في الاستفسار عن المنتج: ${title}`
-      : `Hello, I would like to inquire about the product: ${title}`;
+      ? `مرحباً، أرغب في الاستفسار عن المنتج: ${title}\n${imageUrl}`
+      : `Hello, I would like to inquire about the product: ${title}\n${imageUrl}`;
     
     const whatsappNumber = "771070031";
     const encodedMessage = encodeURIComponent(message);
@@ -225,9 +226,10 @@ const Gallery = () => {
     if (!selectedProduct) return;
     
     const title = selectedProduct.title;
+    const imageUrl = selectedProduct.image;
     const message = language === "ar" 
-      ? `مرحباً، أرغب في الاستفسار عن المنتج: ${title}`
-      : `Hello, I would like to inquire about the product: ${title}`;
+      ? `مرحباً، أرغب في الاستفسار عن المنتج: ${title}\n${imageUrl}`
+      : `Hello, I would like to inquire about the product: ${title}\n${imageUrl}`;
     
     const contactInfo = `${language === "ar" ? "رقم واتساب:" : "WhatsApp:"} +967 771 070 031\n${language === "ar" ? "الرسالة:" : "Message:"} ${message}`;
     copyToClipboard(contactInfo);
