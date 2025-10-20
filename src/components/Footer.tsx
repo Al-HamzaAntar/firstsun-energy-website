@@ -110,7 +110,7 @@ const Footer = () => {
 
             <div className={`flex ${isRTL ? 'space-x-reverse space-x-4' : 'space-x-4'}`}>
               <a 
-                href="#" 
+                href="https://www.facebook.com/p/%D9%81%D8%B1%D8%B3%D8%AA-%D8%B3%D9%86-%D8%A7%D9%86%D8%B1%D8%AC%D9%8A-First-Sun-Energy-61567138172562/" 
                 className="w-10 h-10 bg-solar-blue hover:bg-solar-yellow text-white hover:text-black rounded-full flex items-center justify-center transition-all duration-300"
                 aria-label={t('social.facebook')}
               >
