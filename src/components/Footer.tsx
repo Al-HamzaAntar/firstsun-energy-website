@@ -35,7 +35,7 @@ const Footer = () => {
           <div>
             <div className={`flex items-center ${isRTL ? 'space-x-reverse space-x-2' : 'space-x-2'} mb-4`}>
               <img 
-                src="/lovable-uploads/logo.svg" 
+                src="/lovable-uploads/frist sun light.webp" 
                 alt={t('brand.name')} 
                 className="h-8 w-auto"
               />
@@ -98,7 +98,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4 text-solar-yellow">{t('footer.contact')}</h3>
             <div className="space-y-2 mb-6">
               <p className="text-gray-300">
-                <span className="font-semibold">{t('contact.phone')}:</span> 0771 070 031
+                <span className="font-semibold">{t('contact.phone')}:</span> 781116611
               </p>
               <p className="text-gray-300">
                 <span className="font-semibold">{t('contact.email')}:</span> Admin@FirstSunEn.com
@@ -119,7 +119,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a 
-                href="#" 
+                href="https://www.instagram.com/first_sun_en?igsh=MXdlaWEwbjJtaG5hNg==" 
                 className="w-10 h-10 bg-solar-blue hover:bg-solar-yellow text-white hover:text-black rounded-full flex items-center justify-center transition-all duration-300"
                 aria-label={t('social.instagram')}
               >
