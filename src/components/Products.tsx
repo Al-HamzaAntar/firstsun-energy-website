@@ -33,13 +33,13 @@ const Products = () => {
     {
       titleKey: "products.danmi.title",
       descriptionKey: "products.danmi.description",
-      image: "/lovable-uploads/a9b51979-1ea3-4125-853a-8748aa3f4680.png",
+      image: "/lovable-uploads/danmi.png",
       badgeKey: "products.danmi.badge"
     },
     {
       titleKey: "products.panels.title",
       descriptionKey: "products.panels.description",
-      image: "/lovable-uploads/288e13f4-dfd8-42ba-8d2b-e5fc60e4eb89.png",
+      image: "/lovable-uploads/mibet.webp",
       badgeKey: "products.panels.badge"
     },
     {
