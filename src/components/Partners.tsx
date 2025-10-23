@@ -6,7 +6,7 @@ const Partners = () => {
   const partners = [
     {
       name: "Mibet Energy",
-      logo: "/lovable-uploads/288e13f4-dfd8-42ba-8d2b-e5fc60e4eb89.png"
+      logo: "/lovable-uploads/mibet.webp"
     },
     {
       name: "RJETech",
@@ -34,7 +34,7 @@ const Partners = () => {
     },
     {
       name: "DANMI",
-      logo: "/lovable-uploads/a9b51979-1ea3-4125-853a-8748aa3f4680.png"
+      logo: "/lovable-uploads/danmi.png"
     }
   ];
 
