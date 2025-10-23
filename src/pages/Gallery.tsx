@@ -161,7 +161,7 @@ const Gallery = () => {
       ? `مرحباً، أرغب في الاستفسار عن المنتج: ${title}\n${imageUrl}`
       : `Hello, I would like to inquire about the product: ${title}\n${imageUrl}`;
     
-    const whatsappNumber = "771070031";
+    const whatsappNumber = "781116611";
     const encodedMessage = encodeURIComponent(message);
     
     const methods = [
