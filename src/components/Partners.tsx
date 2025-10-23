@@ -10,19 +10,27 @@ const Partners = () => {
     },
     {
       name: "RJETech",
-      logo: "/lovable-uploads/d7c59264-36cc-4866-b489-2f02ffd738b2.png"
+      logo: "/lovable-uploads/rge.webp"
     },
     {
       name: "SINENG Electric",
-      logo: "/lovable-uploads/d31f99a3-4676-428f-9a5e-d3874fc40f1f.png"
+      logo: "/lovable-uploads/sineng.webp"
     },
     {
-      name: "JNTech",
-      logo: "/lovable-uploads/jntech.png"
+      name: "Fnirsi",
+      logo: "/lovable-uploads/fnirsi.webp"
     },
     {
       name: "Hexcell",
-      logo: "/lovable-uploads/92f5f58d-99b6-47a1-9a0c-e8091c57d698.png"
+      logo: "/lovable-uploads/hexcell.webp"
+    },
+    {
+      name: "Kuka",
+      logo: "/lovable-uploads/kuka.webp"
+    },
+        {
+      name: "TW Solar",
+      logo: "/lovable-uploads/tw.webp"
     },
     {
       name: "DANMI",
@@ -58,7 +66,7 @@ const Partners = () => {
                     <img
                       src={partner.logo}
                       alt={partner.name}
-                      className="max-w-28 max-h-14 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                      className="max-w-28 max-h-14 object-contain filter hover:transition-all duration-300"
                       loading="lazy"
                     />
                   </div>
