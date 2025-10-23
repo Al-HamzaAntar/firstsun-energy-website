@@ -7,10 +7,28 @@ const Products = () => {
   
   const products = [
     {
+      titleKey: "products.rjetech.title",
+      descriptionKey: "products.rjetech.description",
+      image: "/lovable-uploads/rge.webp",
+      badgeKey: "products.rjetech.badge"
+    },
+    {
+      titleKey: "products.inverters.title",
+      descriptionKey: "products.inverters.description",
+      image: "/lovable-uploads/sineng.webp",
+      badgeKey: "products.inverters.badge"
+    },
+        {
       titleKey: "products.panels.title",
       descriptionKey: "products.panels.description",
-      image: "/lovable-uploads/288e13f4-dfd8-42ba-8d2b-e5fc60e4eb89.png",
+      image: "/lovable-uploads/tw.webp",
       badgeKey: "products.panels.badge"
+    },
+        {
+      titleKey: "products.meters.title",
+      descriptionKey: "products.meters.description",
+      image: "/lovable-uploads/hexcell.webp",
+      badgeKey: "products.meters.badge"
     },
     {
       titleKey: "products.danmi.title",
@@ -19,27 +37,21 @@ const Products = () => {
       badgeKey: "products.danmi.badge"
     },
     {
-      titleKey: "products.inverters.title",
-      descriptionKey: "products.inverters.description",
-      image: "/lovable-uploads/d31f99a3-4676-428f-9a5e-d3874fc40f1f.png",
-      badgeKey: "products.inverters.badge"
+      titleKey: "products.panels.title",
+      descriptionKey: "products.panels.description",
+      image: "/lovable-uploads/288e13f4-dfd8-42ba-8d2b-e5fc60e4eb89.png",
+      badgeKey: "products.panels.badge"
     },
     {
-      titleKey: "products.meters.title",
-      descriptionKey: "products.meters.description",
-      image: "/lovable-uploads/92f5f58d-99b6-47a1-9a0c-e8091c57d698.png",
-      badgeKey: "products.meters.badge"
-    },
-    {
-      titleKey: "products.rjetech.title",
-      descriptionKey: "products.rjetech.description",
-      image: "/lovable-uploads/d7c59264-36cc-4866-b489-2f02ffd738b2.png",
-      badgeKey: "products.rjetech.badge"
+      titleKey: "products.panels.title",
+      descriptionKey: "products.panels.description",
+      image: "/lovable-uploads/kuka.webp",
+      badgeKey: "products.panels.badge"
     },
     {
       titleKey: "products.batteries.title",
       descriptionKey: "products.batteries.description",
-      image: "/lovable-uploads/jntech.png",
+      image: "/lovable-uploads/fnirsi.webp",
       badgeKey: "products.batteries.badge"
     }
   ];
