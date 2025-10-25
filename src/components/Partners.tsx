@@ -10,7 +10,7 @@ const Partners = () => {
     },
     {
       name: "RJETech",
-      logo: "/lovable-uploads/rge.webp"
+      logo: "/lovable-uploads/rjetech.webp"
     },
     {
       name: "SINENG Electric",
