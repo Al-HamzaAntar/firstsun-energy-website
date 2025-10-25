@@ -35,7 +35,7 @@ const Footer = () => {
           <div>
             <div className={`flex items-center ${isRTL ? 'space-x-reverse space-x-2' : 'space-x-2'} mb-4`}>
               <img 
-                src="/lovable-uploads/fsnlight.webp" 
+                src="/lovable-uploads/frist sun light.webp" 
                 alt={t('brand.name')} 
                 className="h-8 w-auto"
               />
