@@ -143,7 +143,7 @@ const translations: Translations = {
   'contact.maintenance': { ar: 'الصيانة', en: 'Maintenance' },
   'contact.purchases': { ar: 'المشتريات', en: 'Purchases' },
   'contact.sales': { ar: 'المبيعات', en: 'Sales' },
-  'contact.street': { ar: 'شارع الأربعين - جولة الثقافة، مقابل مفروشات المدينة التركية', en: 'Al-Arbaeen Street - Culture Roundabout, opposite Turkish City Furniture' },
+  'contact.street': { ar: 'شارع الأربعين - جولة الثقافة - مقابل مفروشات المدينة التركية', en: 'Al-Arbaeen Street - Culture Roundabout - opposite Turkish City Furniture' },
   'contact.cityCountry': { ar: 'صنعاء ،الجمهوريةاليمنية ', en: 'Sana\'a, Republic of Yemen' },
 
   // Footer
