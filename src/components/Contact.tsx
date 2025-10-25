@@ -99,7 +99,7 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-lg">{t('contact.street')}</p>
-                <p className="text-lg">{t('contact.cityCountry')}</p>
+                {/* <p className="text-lg">{t('contact.cityCountry')}</p> */}
               </CardContent>
             </Card>
           </div>
