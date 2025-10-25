@@ -67,7 +67,7 @@ const translations: Translations = {
   },
   'about.stats.projects': { ar: 'مشروع منفذ', en: 'Projects Completed' },
   'about.stats.experience': { ar: 'سنوات خبرة', en: 'Years of Experience' },
-  'about.image.alt': { ar: 'مبنى شركة فرست سن إنرجي', en: 'First Sun Energy company building' },
+  'about.image.alt': { ar: 'شعار شركة فرست سن إنرجي', en: 'First Sun Energy logo' },
 
   // Services Section
   'services.title': { ar: 'خدماتنا المتكاملة في الطاقة الشمسية', en: 'Our Comprehensive Solar Energy Services' },
