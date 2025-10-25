@@ -9,26 +9,26 @@ const Products = () => {
     {
       titleKey: "products.rjetech.title",
       descriptionKey: "products.rjetech.description",
-      image: "/lovable-uploads/rge.webp",
+      image: "/lovable-uploads/rjetech.webp",
       badgeKey: "products.rjetech.badge"
     },
     {
-      titleKey: "products.inverters.title",
-      descriptionKey: "products.inverters.description",
+      titleKey: "products.sineng.title",
+      descriptionKey: "products.sineng.description",
       image: "/lovable-uploads/sineng.webp",
-      badgeKey: "products.inverters.badge"
+      badgeKey: "products.sineng.badge"
     },
         {
-      titleKey: "products.panels.title",
-      descriptionKey: "products.panels.description",
+      titleKey: "products.tw.title",
+      descriptionKey: "products.tw.description",
       image: "/lovable-uploads/tw.webp",
-      badgeKey: "products.panels.badge"
+      badgeKey: "products.tw.badge"
     },
         {
-      titleKey: "products.meters.title",
-      descriptionKey: "products.meters.description",
+      titleKey: "products.hexcell.title",
+      descriptionKey: "products.hexcell.description",
       image: "/lovable-uploads/hexcell.webp",
-      badgeKey: "products.meters.badge"
+      badgeKey: "products.hexcell.badge"
     },
     {
       titleKey: "products.danmi.title",
@@ -37,22 +37,22 @@ const Products = () => {
       badgeKey: "products.danmi.badge"
     },
     {
-      titleKey: "products.panels.title",
-      descriptionKey: "products.panels.description",
+      titleKey: "products.mibet.title",
+      descriptionKey: "products.mibet.description",
       image: "/lovable-uploads/mibet.webp",
-      badgeKey: "products.panels.badge"
+      badgeKey: "products.mibet.badge"
     },
     {
-      titleKey: "products.panels.title",
-      descriptionKey: "products.panels.description",
+      titleKey: "products.kuka.title",
+      descriptionKey: "products.kuka.description",
       image: "/lovable-uploads/kuka.webp",
-      badgeKey: "products.panels.badge"
+      badgeKey: "products.kuka.badge"
     },
     {
-      titleKey: "products.batteries.title",
-      descriptionKey: "products.batteries.description",
+      titleKey: "products.fnirsi.title",
+      descriptionKey: "products.fnirsi.description",
       image: "/lovable-uploads/fnirsi.webp",
-      badgeKey: "products.batteries.badge"
+      badgeKey: "products.fnirsi.badge"
     }
   ];
 
