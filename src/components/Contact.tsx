@@ -98,8 +98,8 @@ const Contact = () => {
                 <CardTitle className="text-xl font-bold">{t('contact.address')}</CardTitle>
               </CardHeader>
               <CardContent>
+                <p className="text-lg">{t('contact.cityCountry')}</p>
                 <p className="text-lg">{t('contact.street')}</p>
-                {/* <p className="text-lg">{t('contact.cityCountry')}</p> */}
               </CardContent>
             </Card>
           </div>
