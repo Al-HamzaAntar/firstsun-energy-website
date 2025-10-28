@@ -45,58 +45,49 @@ const Header = () => {
               alt={t('brand.name')} 
               className="h-10 w-auto"
             />
-            {/* <span className="text-xl font-bold text-solar-blue">{t('brand.name')}</span> */}
           </Link>
-
           {/* Desktop Navigation */}
           <nav className={`hidden md:flex items-center gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
             <button 
               onClick={() => scrollToSection('home')}
               className={`flex items-center gap-2 text-gray-700 hover:text-solar-blue transition-colors font-medium ${isRTL ? 'flex-row-reverse' : ''}`}
             >
-              <Home size={18} />
               <span>{t('nav.home')}</span>
             </button>
             <button 
               onClick={() => scrollToSection('about')}
               className={`flex items-center gap-2 text-gray-700 hover:text-solar-blue transition-colors font-medium ${isRTL ? 'flex-row-reverse' : ''}`}
             >
-              <Info size={18} />
               <span>{t('nav.about')}</span>
             </button>
             <button 
               onClick={() => scrollToSection('services')}
               className={`flex items-center gap-2 text-gray-700 hover:text-solar-blue transition-colors font-medium ${isRTL ? 'flex-row-reverse' : ''}`}
             >
-              <Wrench size={18} />
               <span>{t('nav.services')}</span>
             </button>
             <button 
               onClick={() => scrollToSection('products')}
               className={`flex items-center gap-2 text-gray-700 hover:text-solar-blue transition-colors font-medium ${isRTL ? 'flex-row-reverse' : ''}`}
             >
-              <Package size={18} />
               <span>{t('nav.products')}</span>
             </button>
             <button 
               onClick={() => scrollToSection('partners')}
               className={`flex items-center gap-2 text-gray-700 hover:text-solar-blue transition-colors font-medium ${isRTL ? 'flex-row-reverse' : ''}`}
             >
-              <Users size={18} />
               <span>{t('nav.partners')}</span>
             </button>
             <Link 
               to="/gallery"
               className={`flex items-center gap-2 text-gray-700 hover:text-solar-blue transition-colors font-medium ${isRTL ? 'flex-row-reverse' : ''}`}
             >
-              <Image size={18} />
               <span>{t('nav.gallery')}</span>
             </Link>
             <button 
               onClick={() => scrollToSection('contact')}
               className={`flex items-center gap-2 text-gray-700 hover:text-solar-blue transition-colors font-medium ${isRTL ? 'flex-row-reverse' : ''}`}
             >
-              <Phone size={18} />
               <span>{t('nav.contact')}</span>
             </button>
             
