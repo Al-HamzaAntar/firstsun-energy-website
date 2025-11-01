@@ -61,9 +61,18 @@ const Index = () => {
             </div>
           ) : products && products.length > 0 ? (
             <div className="relative px-12">
-              <Carousel className="w-full max-w-5xl mx-auto" opts={{ direction: language === 'ar' ? 'rtl' : 'ltr' }}>
+              <Carousel 
+                className="w-full max-w-5xl mx-auto" 
+                opts={{ 
+                  direction: language === 'ar' ? 'rtl' : 'ltr',
+                  loop: true,
+                  align: "start"
+                }}
+              >
                 <CarouselContent className="-ml-2 md:-ml-4">
-                  {products.map((product) => (
+                  {products
+                    .filter(product => product.title_key && product.image_url)
+                    .map((product) => (
                     <CarouselItem key={product.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                       <Card className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden h-full">
                         <div className="relative">
