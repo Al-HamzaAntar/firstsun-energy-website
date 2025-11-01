@@ -37,7 +37,7 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <Header />
       <Hero />
       <About />
@@ -60,40 +60,42 @@ const Index = () => {
               <p className="text-gray-600">{language === 'ar' ? 'جاري التحميل...' : 'Loading...'}</p>
             </div>
           ) : products && products.length > 0 ? (
-            <Carousel className="w-full max-w-5xl mx-auto">
-              <CarouselContent>
-                {products.map((product) => (
-                  <CarouselItem key={product.id} className="md:basis-1/2 lg:basis-1/3">
-                    <Card className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden h-full">
-                      <div className="relative">
-                        <img 
-                          src={product.image_url} 
-                          alt={language === 'ar' ? t(product.title_key) : t(product.title_key)}
-                          className="w-full h-48 object-contain bg-white p-4"
-                        />
-                        {product.category && (
-                          <div className="absolute top-4 right-4">
-                            <span className="bg-solar-yellow text-black px-3 py-1 rounded-full text-sm font-semibold">
-                              {product.category}
-                            </span>
-                          </div>
-                        )}
-                      </div>
-                      <CardContent className="p-6">
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">
-                          {t(product.title_key)}
-                        </h3>
-                        <p className="text-gray-600 leading-relaxed">
-                          {t(product.description_key)}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
+            <div className="relative px-12">
+              <Carousel className="w-full max-w-5xl mx-auto" opts={{ direction: language === 'ar' ? 'rtl' : 'ltr' }}>
+                <CarouselContent className="-ml-2 md:-ml-4">
+                  {products.map((product) => (
+                    <CarouselItem key={product.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                      <Card className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden h-full">
+                        <div className="relative">
+                          <img 
+                            src={product.image_url} 
+                            alt={t(product.title_key)}
+                            className="w-full h-48 object-contain bg-white p-4"
+                          />
+                          {product.category && (
+                            <div className={`absolute top-4 ${language === 'ar' ? 'left-4' : 'right-4'}`}>
+                              <span className="bg-solar-yellow text-black px-3 py-1 rounded-full text-sm font-semibold">
+                                {product.category}
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                        <CardContent className="p-6">
+                          <h3 className="text-xl font-bold text-gray-900 mb-2">
+                            {t(product.title_key)}
+                          </h3>
+                          <p className="text-gray-600 leading-relaxed">
+                            {t(product.description_key)}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-0" />
+                <CarouselNext className="right-0" />
+              </Carousel>
+            </div>
           ) : null}
 
           <div className="text-center mt-8">
