@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -73,27 +73,38 @@ const Index = () => {
                   {products
                     .filter(product => product.title_key && product.image_url)
                     .map((product) => (
-                    <CarouselItem key={product.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                      <Card className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden h-full">
+                    <CarouselItem key={product.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
+                      <Card className="group relative hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden h-full">
                         <div className="relative">
                           <img 
                             src={product.image_url} 
                             alt={t(product.title_key)}
-                            className="w-full h-48 object-contain bg-white p-4"
+                            className="w-full h-32 object-contain bg-white p-2"
                           />
                           {product.category && (
-                            <div className={`absolute top-4 ${language === 'ar' ? 'left-4' : 'right-4'}`}>
-                              <span className="bg-solar-yellow text-black px-3 py-1 rounded-full text-sm font-semibold">
+                            <div className={`absolute top-2 ${language === 'ar' ? 'left-2' : 'right-2'}`}>
+                              <span className="bg-solar-yellow text-black px-2 py-0.5 rounded-full text-xs font-semibold">
                                 {product.category}
                               </span>
                             </div>
                           )}
+                          <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <a 
+                              href="https://wa.me/201023004949" 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 text-white font-semibold text-sm px-4 py-2 bg-green-600 rounded-lg hover:bg-green-700 transition-colors"
+                            >
+                              <MessageCircle className="w-4 h-4" />
+                              {language === 'ar' ? 'تواصل عبر واتساب' : 'Click to contact via WhatsApp'}
+                            </a>
+                          </div>
                         </div>
-                        <CardContent className="p-6">
-                          <h3 className="text-xl font-bold text-gray-900 mb-2">
+                        <CardContent className="p-3">
+                          <h3 className="text-sm font-bold text-gray-900 mb-1 line-clamp-2">
                             {t(product.title_key)}
                           </h3>
-                          <p className="text-gray-600 leading-relaxed">
+                          <p className="text-xs text-gray-600 leading-relaxed line-clamp-2">
                             {t(product.description_key)}
                           </p>
                         </CardContent>
